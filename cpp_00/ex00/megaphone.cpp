@@ -6,12 +6,33 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 20:16:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/09/29 16:41:14 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/09/29 17:08:01 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
+int main(int argc, char **argv)
+{
+	int i = 1;
+	std::string	str;
+	
+	if (argc < 2)
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return (0);
+	}
+	while (argv[i])
+	{
+		str = argv[i];
+		transform(str.begin(), str.end(), str.begin(), toupper);
+		std::cout << str;
+		i++;
+	}
+	std::cout << std::endl;
+	return (0);
+}
+/*
 int main(int argc, char **argv)
 {
 	int		i;
@@ -36,3 +57,4 @@ int main(int argc, char **argv)
 	std::cout << std::endl;
 	return (0);
 }
+*/
