@@ -20,4 +20,7 @@ fclean: clean
 
 re: fclean all
 
+dev : fclean
+	git add .; git commit -m "CPP00/ex00 - auto/dev"; git push --force
+
 .PHONY: all clean fclean re
