@@ -1,7 +1,8 @@
-NAME = megaphone
+NAME = PhoneBook
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SOURCES = megaphone.cpp
+SOURCES = main.cpp\
+	PhoneBook_class.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 all: $(NAME)
