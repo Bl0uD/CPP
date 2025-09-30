@@ -6,11 +6,14 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 20:16:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/09/29 17:08:01 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/09/30 18:12:47 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
+#include <algorithm>
+#include <cctype>
 
 int main(int argc, char **argv)
 {

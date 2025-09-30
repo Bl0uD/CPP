@@ -1,19 +1,23 @@
 NAME = megaphone
 CXX = g++
+OBJDIR = objects
+
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SOURCES = megaphone.cpp
-OBJECTS = $(SOURCES:.cpp=.o)
+
+OBJECTS = $(SOURCES:%.cpp=$(OBJDIR)/%.o)
+
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJECTS)
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
 clean:
-	rm -f $(OBJECTS)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)
