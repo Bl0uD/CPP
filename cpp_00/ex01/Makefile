@@ -1,9 +1,17 @@
 NAME = PhoneBook
 CXX = g++
+OBJDIR = objects
+
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SOURCES = main.cpp\
-	PhoneBook_class.cpp
-OBJECTS = $(SOURCES:.cpp=.o)
+SOURCES = src/main.cpp \
+			src/PhoneBook_class.cpp \
+			src/Contact_class.cpp
+
+OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
+
+$(OBJDIR)/%.o: src/%.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all: $(NAME)
 
@@ -14,7 +22,7 @@ $(NAME): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJECTS)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)

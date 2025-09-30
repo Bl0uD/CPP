@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Contact_class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 17:12:35 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/09/29 18:00:16 by jdupuis          ###   ########.fr       */
+/*   Created: 2025/09/30 15:14:03 by jdupuis           #+#    #+#             */
+/*   Updated: 2025/09/30 17:22:50 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CONTACT_CLASS_HPP
+# define CONTACT_CLASS_HPP
+
 #include <iostream>
-#include "PhoneBook_class.hpp"
 
-int main(void)
-{
-	Phonebook contact;
-	
-	std::string	input;
+class Contact {
 
-	std::cin >> input;
-	while (input.compare("ADD") && input.compare("SEARCH") && input.compare("EXIT"))
-		std::cin >> input;
-	/*if (!input.compare("ADD"))
-		add();
-	if (!input.compare("SEARCH"))
-		search();
-	if (!input.compare("EXIT"))
-		return (0);*/
-	return (0);
-}
+public:
+
+	Contact( void );
+	~Contact( void );
+	void		get_infos( void );
+	void		clear_infos( void );
+	std::string	first_name;
+	std::string	last_name;
+	std::string	nickname;
+	std::string	phone_number;
+	std::string	darkest_secret;
+	int			id;
+};
+
+#endif

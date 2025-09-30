@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook_class.cpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/09/29 18:01:29 by jdupuis          ###   ########.fr       */
+/*   Created: 2025/09/29 17:12:35 by jdupuis           #+#    #+#             */
+/*   Updated: 2025/09/30 17:27:17 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "PhoneBook_class.hpp"
+#include "../includes/PhoneBook_class.hpp"
 
-Phonebook::Phonebook( void )
+int main(void)
 {
-	std::cout << "Constructor called" << std::endl;
-	return;	
-}
+	Phonebook	phonebook;
+	std::string	input;
 
-Phonebook::~Phonebook( void )
-{
-	std::cout << "Destructor called" << std::endl;
-	return;	
+	std::getline(std::cin, input);
+	while (input.compare("EXIT"))
+	{
+		if (!input.compare("ADD"))
+			phonebook.add();
+		if (!input.compare("SEARCH"))
+			phonebook.search();
+		std::getline(std::cin, input);
+	}
+	return (0);
 }
