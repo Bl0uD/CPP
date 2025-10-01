@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/09/30 17:56:40 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/01 02:20:33 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,23 @@ int	only_whitespace( std::string str )
 	return (1);
 }
 
+int	is_whitespace( char c )
+{
+	if (c == ' ' || c == '\t' || c == '\f'
+		|| c == '\n' || c == '\r' || c == '\v')
+		return (1);
+	return (0);
+}
+
+std::string	clear_string( std::string str )
+{
+	while (!str.empty() && is_whitespace(str[str.length() - 1]))
+		str.pop_back();
+	while (!str.empty() && is_whitespace(str[0]))
+		str.erase(0, 1);
+	return (str);
+}
+
 void	Contact::get_infos( void )
 {
 	clear_infos();
@@ -56,20 +73,25 @@ void	Contact::get_infos( void )
 	std::cout << "What's your first name ?" << std::endl;
 	while (this->first_name.empty() || only_whitespace(this->first_name))
 		std::getline(std::cin, this->first_name);
+	this->first_name = clear_string(this->first_name);
 
 	std::cout << "What's your last name ?" << std::endl;
 	while (this->last_name.empty() || only_whitespace(this->last_name))
 		std::getline(std::cin, this->last_name);
+	this->last_name = clear_string(this->last_name);
 
 	std::cout << "What's your nicknamee ?" << std::endl;
 	while (this->nickname.empty() || only_whitespace(this->nickname))
 		std::getline(std::cin, this->nickname);
+	this->nickname = clear_string(this->nickname);
 
 	std::cout << "What's your phone number ?" << std::endl;
 	while (this->phone_number.empty() || only_whitespace(this->phone_number))
 		std::getline(std::cin, this->phone_number);
+	this->phone_number = clear_string(this->phone_number);
 
 	std::cout << "What's your darkest secret ?" << std::endl;
 	while (this->darkest_secret.empty() || only_whitespace(this->darkest_secret))
 		std::getline(std::cin, this->darkest_secret);
+	this->darkest_secret = clear_string(this->darkest_secret);
 }

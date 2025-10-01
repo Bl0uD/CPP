@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/09/30 17:38:47 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/01 02:24:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	Phonebook::search( void )
 {
 	int	i = 0;
 
-	std::cout << std::string(45, '-') << std::endl;
+	std::cout << std::endl << std::string(45, '-') << std::endl;
 	std::cout << "|" << std::setw(10) << "Index" 
 			<< "|" << std::setw(10) << "First Name" 
 			<< "|" << std::setw(10) << "Last Name"
@@ -67,5 +67,5 @@ void	Phonebook::search( void )
 				<< "|" << std::setw(10) << nickname << "|" << std::endl;
 				i++;
 	}
-	std::cout << std::string(45, '-') << std::endl;
+	std::cout << std::string(45, '-') << std::endl << std::endl;
 }
