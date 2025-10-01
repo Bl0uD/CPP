@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 15:46:53 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/01 15:51:55 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <limits>
 #include <string>
 #include "../includes/Contact_class.hpp"
+#include "../includes/utils.hpp"
 
 Contact::Contact( void )
 {
@@ -24,49 +25,6 @@ Contact::Contact( void )
 Contact::~Contact( void )
 {
 	return ;
-}
-
-int	only_whitespace( std::string str )
-{
-	int	i = 0;
-	
-	while (i < (int)str.length())
-	{
-		if (!is_whitespace(str[i]))
-        	return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	is_whitespace( char c )
-{
-	if (c == ' ' || c == '\t' || c == '\f'
-		|| c == '\n' || c == '\r' || c == '\v')
-		return (1);
-	return (0);
-}
-
-std::string	clear_string( std::string str )
-{
-	std::string result;
-	size_t		i = 0;
-
-	while (i < str.length())
-	{
-		if (str[i] >= 32 && str[i] <= 126)
-			result += str[i];
-		else if (str[i] == ' ' || str[i] == '\t')
-			result += ' ';
-		i++;
-	}
-	while (!result.empty() && result[0] == ' ')
-		result.erase(0, 1);
-
-	while (!result.empty() && result[result.length() - 1] == ' ')
-		result.erase(result.length() - 1);
-
-return (result);
 }
 
 void	Contact::get_infos( void )

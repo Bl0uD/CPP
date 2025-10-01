@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 15:40:49 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/01 15:48:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,6 @@ Phonebook::Phonebook( void )
 Phonebook::~Phonebook( void )
 {
 	return ;
-}
-
-std::string	Phonebook::is_to_long( std::string input )
-{
-	if (input.empty())
-		return ("");
-	if (input.length() > 10)
-		return (input.substr(0, 9) + ".");
-	return (input);
 }
 
 void	Phonebook::add( void )
