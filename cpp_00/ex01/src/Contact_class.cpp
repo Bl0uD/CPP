@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 15:43:02 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/01 15:46:53 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int	only_whitespace( std::string str )
 	
 	while (i < (int)str.length())
 	{
-		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\f'
-			&& str[i] != '\n' && str[i] != '\r' && str[i] != '\v')
+		if (!is_whitespace(str[i]))
         	return (0);
 		i++;
 	}
