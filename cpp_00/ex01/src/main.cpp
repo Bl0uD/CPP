@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:12:35 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 02:23:22 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/01 12:26:14 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,34 @@ void	print_banner(void)
 	std::cout << "|_|   |_| |_|\\___/|_| \\_|_____|____/ \\___/ \\___/|_|\\_\\" << std::endl;
 	std::cout << std::endl;
 	std::cout << "Welcome to your personal phonebook!" << std::endl;
-	std::cout << "Commands: ADD, SEARCH, EXIT" << std::endl;
-	std::cout << std::endl;
+	std::cout << "Commands: ADD, SEARCH, EXIT" << std::endl << std::endl;
 }
 
 int main(void)
 {
-	Phonebook	phonebook;
+	Phonebook phonebook;
 	std::string	input;
 
 	print_banner();
-	
-	std::getline(std::cin, input);
-	while (input.compare("EXIT"))
+
+	while (1)
 	{
-		if (!input.compare("ADD"))
-			phonebook.add();
-		if (!input.compare("SEARCH"))
-			phonebook.search();
+		std::cout << "> ";
 		std::getline(std::cin, input);
+		
+		if (input == "ADD")
+			phonebook.add();
+		else if (input == "SEARCH")
+			phonebook.search();
+		else if (input == "EXIT")
+		{
+			std::cout << "Goodbye!" << std::endl;
+			break ;
+		}
+		else if (!input.empty())
+			std::cout << "Invalid command. Use: ADD, SEARCH, or EXIT" << std::endl;
+		std::cout << std::endl;
 	}
+	
 	return (0);
 }

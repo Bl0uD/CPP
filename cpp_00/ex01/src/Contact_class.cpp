@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 02:20:33 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/01 12:28:22 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,39 +59,67 @@ int	is_whitespace( char c )
 
 std::string	clear_string( std::string str )
 {
-	while (!str.empty() && is_whitespace(str[str.length() - 1]))
-		str.pop_back();
-	while (!str.empty() && is_whitespace(str[0]))
-		str.erase(0, 1);
-	return (str);
+    std::string result;
+	size_t		i = 0;
+    
+	while (i < str.length())
+	{
+		if (str[i] >= 32 && str[i] <= 126)
+			result += str[i];
+		else if (str[i] == ' ' || str[i] == '\t')
+			result += ' ';
+		i++;
+	}
+    while (!result.empty() && result[0] == ' ')
+        result.erase(0, 1);
+    
+    while (!result.empty() && result[result.length() - 1] == ' ')
+        result.erase(result.length() - 1);
+
+    return (result);
 }
 
 void	Contact::get_infos( void )
 {
-	clear_infos();
-	
-	std::cout << "What's your first name ?" << std::endl;
-	while (this->first_name.empty() || only_whitespace(this->first_name))
-		std::getline(std::cin, this->first_name);
-	this->first_name = clear_string(this->first_name);
+    clear_infos();
+    
+    std::cout << "What's your first name ?" << std::endl;
+    do {
+        std::getline(std::cin, this->first_name);
+        this->first_name = clear_string(this->first_name);
+        if (this->first_name.empty())
+            std::cout << "Please enter a valid first name: ";
+    } while (this->first_name.empty());
 
-	std::cout << "What's your last name ?" << std::endl;
-	while (this->last_name.empty() || only_whitespace(this->last_name))
-		std::getline(std::cin, this->last_name);
-	this->last_name = clear_string(this->last_name);
+    std::cout << "What's your last name ?" << std::endl;
+    do {
+        std::getline(std::cin, this->last_name);
+        this->last_name = clear_string(this->last_name);
+        if (this->last_name.empty())
+            std::cout << "Please enter a valid last name: ";
+    } while (this->last_name.empty());
 
-	std::cout << "What's your nicknamee ?" << std::endl;
-	while (this->nickname.empty() || only_whitespace(this->nickname))
-		std::getline(std::cin, this->nickname);
-	this->nickname = clear_string(this->nickname);
+    std::cout << "What's your nickname ?" << std::endl;
+    do {
+        std::getline(std::cin, this->nickname);
+        this->nickname = clear_string(this->nickname);
+        if (this->nickname.empty())
+            std::cout << "Please enter a valid nickname: ";
+    } while (this->nickname.empty());
 
-	std::cout << "What's your phone number ?" << std::endl;
-	while (this->phone_number.empty() || only_whitespace(this->phone_number))
-		std::getline(std::cin, this->phone_number);
-	this->phone_number = clear_string(this->phone_number);
+    std::cout << "What's your phone number ?" << std::endl;
+    do {
+        std::getline(std::cin, this->phone_number);
+        this->phone_number = clear_string(this->phone_number);
+        if (this->phone_number.empty())
+            std::cout << "Please enter a valid phone number: ";
+    } while (this->phone_number.empty());
 
-	std::cout << "What's your darkest secret ?" << std::endl;
-	while (this->darkest_secret.empty() || only_whitespace(this->darkest_secret))
-		std::getline(std::cin, this->darkest_secret);
-	this->darkest_secret = clear_string(this->darkest_secret);
+    std::cout << "What's your darkest secret ?" << std::endl;
+    do {
+        std::getline(std::cin, this->darkest_secret);
+        this->darkest_secret = clear_string(this->darkest_secret);
+        if (this->darkest_secret.empty())
+            std::cout << "Please enter a valid secret: ";
+    } while (this->darkest_secret.empty());
 }
