@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:47:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 15:54:18 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/01 23:14:40 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ public:
 	void		search( void );
 
 private:
-	Contact contacts[8];
-	int		id_contacts;
-	int		nb_contacts;
+	Contact _contacts[8];
+	int		_id_contacts;
+	int		_nb_contacts;
 };
 
 #endif

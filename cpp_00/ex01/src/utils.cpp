@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 15:48:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 15:49:40 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/01 16:29:56 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 std::string	is_to_long( std::string input )
 {
-	if (input.empty())
-		return ("");
 	if (input.length() > 10)
 		return (input.substr(0, 9) + ".");
 	return (input);
