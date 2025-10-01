@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 12:28:22 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/01 15:30:11 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int	is_whitespace( char c )
 
 std::string	clear_string( std::string str )
 {
-    std::string result;
+	std::string result;
 	size_t		i = 0;
-    
+
 	while (i < str.length())
 	{
 		if (str[i] >= 32 && str[i] <= 126)
@@ -70,13 +70,13 @@ std::string	clear_string( std::string str )
 			result += ' ';
 		i++;
 	}
-    while (!result.empty() && result[0] == ' ')
-        result.erase(0, 1);
-    
-    while (!result.empty() && result[result.length() - 1] == ' ')
-        result.erase(result.length() - 1);
+	while (!result.empty() && result[0] == ' ')
+		result.erase(0, 1);
 
-    return (result);
+	while (!result.empty() && result[result.length() - 1] == ' ')
+		result.erase(result.length() - 1);
+
+return (result);
 }
 
 void	Contact::get_infos( void )
