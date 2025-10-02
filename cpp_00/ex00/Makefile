@@ -2,7 +2,7 @@ NAME = megaphone
 OBJDIR = objects
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SOURCES = megaphone.cpp
+SOURCES = Megaphone.cpp
 
 OBJECTS = $(SOURCES:%.cpp=$(OBJDIR)/%.o)
 
