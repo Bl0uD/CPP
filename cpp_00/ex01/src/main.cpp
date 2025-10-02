@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:12:35 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 12:26:14 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/02 16:59:37 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(void)
 			phonebook.search();
 		else if (input == "EXIT")
 		{
-			std::cout << "Goodbye!" << std::endl;
+			std::cout << "Goodbye !" << std::endl;
 			break ;
 		}
 		else if (!input.empty())

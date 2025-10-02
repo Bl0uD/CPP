@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/02 16:53:58 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/02 16:58:41 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	Phonebook::search( void )
 	std::cout << "|" << std::setw(10) << "Index" 
 			<< "|" << std::setw(10) << "First Name" 
 			<< "|" << std::setw(10) << "Last Name"
-			<< "|" << std::setw(10) << "_nickname" << "|" << std::endl;
+			<< "|" << std::setw(10) << "Nickname" << "|" << std::endl;
 	std::cout << std::string(45, '-') << std::endl;
 	while (i < this->_nb_contacts)
 	{
