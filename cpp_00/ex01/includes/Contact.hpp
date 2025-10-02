@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:14:03 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/02 18:02:12 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/02 18:06:08 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include "Utils.hpp"
 
 class Contact {
 

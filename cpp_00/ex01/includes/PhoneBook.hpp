@@ -6,16 +6,16 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:47:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/02 18:02:59 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/02 18:06:03 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include <string>
-#include "Contact.hpp"
-#include "Utils.hpp"
+# include <string>
+# include "Contact.hpp"
+# include "Utils.hpp"
 
 class Phonebook {
 

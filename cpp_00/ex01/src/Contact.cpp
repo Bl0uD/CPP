@@ -6,11 +6,11 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/02 17:41:22 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/02 18:05:05 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/PhoneBook.hpp"
+#include "../includes/Contact.hpp"
 
 Contact::Contact( void )
 {
