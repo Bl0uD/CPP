@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 20:16:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/09/30 18:12:47 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/02 16:22:50 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <algorithm>
 #include <cctype>
 
-int main(int argc, char **argv)
+int main( int argc, char **argv )
 {
 	int i = 1;
 	std::string	str;
