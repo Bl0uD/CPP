@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 15:51:55 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/02 16:53:11 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Contact::Contact( void )
 {
-	this->id = -1;
+	this->_id = -1;
 	return ;
 }
 
@@ -27,45 +27,65 @@ Contact::~Contact( void )
 	return ;
 }
 
-void	Contact::get_infos( void )
+std::string	Contact::get_First_name( void ) const
+{
+	return this->_first_name;
+}
+
+std::string	Contact::get_Last_name( void ) const
+{
+	return this->_last_name;
+}
+
+std::string	Contact::get_Nickname( void ) const
+{
+	return this->_nickname;
+}
+
+void	Contact::set_Id( int v )
+{
+	this->_id = v;
+}
+
+void	Contact::set_infos( void )
 {
 	std::cout << "What's your first name ?" << std::endl;
 	do {
-		std::getline(std::cin, this->first_name);
-		this->first_name = clear_string(this->first_name);
-		if (this->first_name.empty())
+		std::getline(std::cin, this->_first_name);
+		this->_first_name = clear_string(this->_first_name);
+		if (this->_first_name.empty())
 			std::cout << "Please enter a valid first name: ";
-	} while (this->first_name.empty());
+	} while (this->_first_name.empty());
 
 	std::cout << "What's your last name ?" << std::endl;
 	do {
-		std::getline(std::cin, this->last_name);
-		this->last_name = clear_string(this->last_name);
-		if (this->last_name.empty())
+		std::getline(std::cin, this->_last_name);
+		this->_last_name = clear_string(this->_last_name);
+		if (this->_last_name.empty())
 			std::cout << "Please enter a valid last name: ";
-	} while (this->last_name.empty());
+	} while (this->_last_name.empty());
 
-	std::cout << "What's your nickname ?" << std::endl;
+	std::cout << "What's your _nickname ?" << std::endl;
 	do {
-		std::getline(std::cin, this->nickname);
-		this->nickname = clear_string(this->nickname);
-		if (this->nickname.empty())
-			std::cout << "Please enter a valid nickname: ";
-	} while (this->nickname.empty());
+		std::getline(std::cin, this->_nickname);
+		this->_nickname = clear_string(this->_nickname);
+		if (this->_nickname.empty())
+			std::cout << "Please enter a valid _nickname: ";
+	} while (this->_nickname.empty());
 
 	std::cout << "What's your phone number ?" << std::endl;
 	do {
-		std::getline(std::cin, this->phone_number);
-		this->phone_number = clear_string(this->phone_number);
-		if (this->phone_number.empty())
+		std::getline(std::cin, this->_phone_number);
+		this->_phone_number = clear_string(this->_phone_number);
+		if (this->_phone_number.empty())
 			std::cout << "Please enter a valid phone number: ";
-	} while (this->phone_number.empty());
+	} while (this->_phone_number.empty());
 
 	std::cout << "What's your darkest secret ?" << std::endl;
 	do {
-		std::getline(std::cin, this->darkest_secret);
-		this->darkest_secret = clear_string(this->darkest_secret);
-		if (this->darkest_secret.empty())
+		std::getline(std::cin, this->_darkest_secret);
+		this->_darkest_secret = clear_string(this->_darkest_secret);
+		if (this->_darkest_secret.empty())
 			std::cout << "Please enter a valid secret: ";
-	} while (this->darkest_secret.empty());
+	} while (this->_darkest_secret.empty());
 }
