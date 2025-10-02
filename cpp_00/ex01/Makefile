@@ -30,6 +30,7 @@ fclean: clean
 re: fclean all
 
 dev : fclean
-	git add .; git commit -m "CPP00/ex01 - auto/dev"; git push --force
+	@echo "Adding files from current directory only..."
+	@git add . && git diff --cached --quiet || (git commit -m "CPP00/ex01 - auto/dev" && git push) || echo "No changes to commit"
 
 .PHONY: all clean fclean re
