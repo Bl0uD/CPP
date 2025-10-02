@@ -6,13 +6,17 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:47:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/02 17:28:23 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/02 17:41:38 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
+#include <iostream>
+#include <iomanip>
+#include <limits>
+#include <string>
 #include "Contact.hpp"
 #include "Utils.hpp"
 
