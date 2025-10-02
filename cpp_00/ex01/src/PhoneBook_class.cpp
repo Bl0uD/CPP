@@ -6,13 +6,13 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/02 16:58:41 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/02 17:29:52 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
-#include "../includes/PhoneBook_class.hpp"
+#include "../includes/PhoneBook.hpp"
 
 Phonebook::Phonebook( void )
 {

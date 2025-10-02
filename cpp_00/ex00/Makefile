@@ -8,12 +8,12 @@ OBJECTS = $(SOURCES:%.cpp=$(OBJDIR)/%.o)
 
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
-	g++ $(FLAGS) -c $< -o $@
+	c++ $(FLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	g++ $(FLAGS) -o $(NAME) $(OBJECTS)
+	c++ $(FLAGS) -o $(NAME) $(OBJECTS)
 
 clean:
 	rm -rf $(OBJDIR)

@@ -1,17 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.hpp                                          :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/01 15:50:07 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 15:51:25 by jdupuis          ###   ########.fr       */
+/*   Created: 2025/09/29 17:47:44 by jdupuis           #+#    #+#             */
+/*   Updated: 2025/10/02 17:28:23 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook_class.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-std::string	is_to_long( std::string input );
-int	only_whitespace( std::string str );
-std::string	clear_string( std::string str );
+#include "Contact.hpp"
+#include "Utils.hpp"
+
+class Phonebook {
+
+public:
+
+	Phonebook( void );
+	~Phonebook( void );
+	void		add( void );
+	void		search( void );
+
+private:
+	Contact _contacts[8];
+	int		_id_contacts;
+	int		_nb_contacts;
+};
+
+#endif

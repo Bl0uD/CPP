@@ -6,11 +6,11 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 15:48:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 16:29:56 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/02 17:29:58 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/PhoneBook_class.hpp"
+#include "../includes/PhoneBook.hpp"
 
 std::string	is_to_long( std::string input )
 {
