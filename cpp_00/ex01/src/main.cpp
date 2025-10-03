@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:12:35 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/02 17:39:32 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/03 02:52:17 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ int main(void)
 	while (1)
 	{
 		std::cout << "> ";
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input)) {
+			std::cout << std::endl << "Goodbye !" << std::endl;
+			break;
+		}
 		
 		if (input == "ADD")
 			phonebook.add();

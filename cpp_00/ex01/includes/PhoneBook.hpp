@@ -13,6 +13,7 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
+# include <cstdlib>
 # include <string>
 # include "Contact.hpp"
 # include "Utils.hpp"

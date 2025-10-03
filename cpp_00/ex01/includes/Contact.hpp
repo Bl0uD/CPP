@@ -6,13 +6,14 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:14:03 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/02 18:06:08 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/03 02:55:31 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
+# include <cstdlib>
 # include <iostream>
 # include <iomanip>
 # include "Utils.hpp"
