@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 12:39:53 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/06 15:56:07 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/06 16:03:43 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int	main( void )
 
 	Zombie *child_zombie;
 
-	child_zombie = parent_zombie.newZombie("child_Zombie");
+	child_zombie = newZombie("child_Zombie");
 
 	child_zombie->announce();
 	parent_zombie.announce();
 
-	parent_zombie.randomChump("randow_zombie");
+	randomChump("randow_zombie");
 
 	delete child_zombie;
 	return (0);

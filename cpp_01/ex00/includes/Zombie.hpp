@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 12:40:16 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/06 15:32:13 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/06 16:01:56 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ public:
 	Zombie(std::string name);
 	~Zombie();
 	void	announce( void );
-	void	randomChump( std::string name );
-	Zombie*	newZombie( std::string name );
-
-private:
+	
+	private:
 	std::string	_name;
 };
+
+void	randomChump( std::string name );
+Zombie*	newZombie( std::string name );
 
 #endif
