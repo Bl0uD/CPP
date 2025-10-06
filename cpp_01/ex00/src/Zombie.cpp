@@ -6,15 +6,15 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 12:40:31 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/06 15:42:14 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/07 01:25:16 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Zombie.hpp"
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(std::string name) : _name( name )
 {
-	_name = name;
+	std::cout << "Zombie " << this->_name << " has spawned !" << std::endl;
 }
 
 Zombie::~Zombie( void )

@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 12:40:16 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/06 16:01:56 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/07 01:16:30 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 class Zombie
 {
-public:
-	Zombie(std::string name);
-	~Zombie();
-	void	announce( void );
-	
+	public:
+		Zombie(std::string name);
+		~Zombie();
+		void	announce( void );
+		
 	private:
-	std::string	_name;
+		std::string	_name;
 };
 
 void	randomChump( std::string name );
