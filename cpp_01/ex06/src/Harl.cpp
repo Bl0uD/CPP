@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 13:28:13 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/07 14:37:02 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/07 14:39:52 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	Harl::complain( std::string level )
 			while (i < 4)
 			{
 				(this->*pFunction[i])();
+				std::cout << std::endl;
 				i++;
 			}
 		}
