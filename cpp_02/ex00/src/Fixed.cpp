@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/11 00:05:06 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/11 14:54:27 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ std::ostream& operator<<(std::ostream& os, Fixed const& a)
 	return (os);
 }
 
-Fixed::~Fixed(){
+Fixed::~Fixed()
+{
 	std::cout << "Destructor called" << std::endl;
 }
 
