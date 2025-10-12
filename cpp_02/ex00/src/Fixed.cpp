@@ -6,48 +6,48 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/11 14:54:27 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/12 17:32:58 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Fixed.hpp"
 
-Fixed& Fixed::operator=(Fixed const& a)
+Fixed& Fixed::operator=( Fixed const& a )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->fixed_point = a.getRawBits();
 	return (*this);
 }
 
-std::ostream& operator<<(std::ostream& os, Fixed const& a)
+std::ostream& operator<<( std::ostream& os, Fixed const& a )
 {
 	os << a.getRawBits();
 	return (os);
 }
 
-Fixed::~Fixed()
+Fixed::~Fixed( void )
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(void) : fixed_point(0)
+Fixed::Fixed( void ) : fixed_point(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const& other)
+Fixed::Fixed( Fixed const& other )
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
-int Fixed::getRawBits(void) const
+int Fixed::getRawBits( void ) const
 {
 	 std::cout << "getRawBits called" << std::endl; 
 	 return (this->fixed_point); 
 }
 
-void Fixed::setRawBits(int const data)
+void Fixed::setRawBits( int const data )
 {
 	std::cout << "setRawBits called" << std::endl; 
 	this->fixed_point = data;
