@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/12 17:56:51 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/12 17:59:29 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ Fixed::Fixed( const float n )
 {
 	std::cout << "Float constructor called" << std::endl;
 	float scaled = n * ( 1 << this->bits );
-	this->fixed_point = (int)(scaled + (scaled >= 0 ? 0.5f : -0.5f));
+	this->fixed_point = (int)scaled;
+	if ( scaled >= 0 )
+		this->fixed_point += 0.5;
+	else
+		this->fixed_point -= 0.5;
 }
 
 Fixed::Fixed( Fixed const& other )
