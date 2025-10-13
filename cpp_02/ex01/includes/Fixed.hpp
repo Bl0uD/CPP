@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/12 17:55:33 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 15:58:53 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 # define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
 	private:
-		int	fixed_point;
-		static const int bits = 8;
+		int	_fixed_point;
+		static const int _bits = 8;
 
 	public:
 		Fixed();								// Canonical : Constructor
@@ -29,8 +30,8 @@ class Fixed
 		~Fixed();								// Canonical : Destructor
 		Fixed & operator=( Fixed const & a );	// Canonical : Assign Operator '=' to Fixed
 
-		int		getRawBits( void ) const;
-		void	setRawBits( int const data );
+		int		getRaw_bits( void ) const;
+		void	setRaw_bits( int const data );
 		
 		int		toInt( void ) const;
 		float	toFloat( void ) const;

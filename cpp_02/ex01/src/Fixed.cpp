@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/12 17:59:29 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 15:59:23 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Fixed& Fixed::operator=( Fixed const& a )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->fixed_point = a.getRawBits();
+	this->_fixed_point = a.getRaw_bits();
 	return (*this);
 }
 
@@ -25,7 +25,7 @@ std::ostream& operator<<(std::ostream& os, Fixed const& a)
 	return (os);
 }
 
-Fixed::Fixed( void ) : fixed_point (0)
+Fixed::Fixed( void ) : _fixed_point (0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -33,19 +33,11 @@ Fixed::Fixed( void ) : fixed_point (0)
 Fixed::Fixed( const int n )
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->fixed_point = n << this->bits;
+	this->_fixed_point = n << this->_bits;
 }
 
-Fixed::Fixed( const float n )
-{
-	std::cout << "Float constructor called" << std::endl;
-	float scaled = n * ( 1 << this->bits );
-	this->fixed_point = (int)scaled;
-	if ( scaled >= 0 )
-		this->fixed_point += 0.5;
-	else
-		this->fixed_point -= 0.5;
-}
+Fixed::Fixed( const float n ) : _fixed_point ( roundf( n * (1 << this->_bits) ) )
+{}
 
 Fixed::Fixed( Fixed const& other )
 {
@@ -58,22 +50,22 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-int	Fixed::getRawBits( void ) const
+int	Fixed::getRaw_bits( void ) const
 {
-	return (this->fixed_point);
+	return (this->_fixed_point);
 }
 
-void	Fixed::setRawBits( int const data )
+void	Fixed::setRaw_bits( int const data )
 {
-	this->fixed_point = data;
+	this->_fixed_point = data;
 }
 
 int	Fixed::toInt( void ) const
 {
-	return ( (int)this->fixed_point >> this->bits );
+	return ( (int)this->_fixed_point >> this->_bits );
 }
 
 float	Fixed::toFloat( void ) const
 {
-	return ( (float)this->fixed_point / (1 << this->bits) );
+	return ( (float)this->_fixed_point / (1 << this->_bits) );
 }
