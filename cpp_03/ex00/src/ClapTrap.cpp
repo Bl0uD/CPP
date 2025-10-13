@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:04:04 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/13 16:56:22 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 17:43:53 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ ClapTrap::~ClapTrap( void )
 ClapTrap::ClapTrap( void ) : _hp( 10 ), _ep( 10 ), _dmg ( 0 )
 {}
 
-ClapTrap::ClapTrap( std::string name ) : _hp( 10 ), _ep( 10 ), _dmg ( 0 )
-{
-	this->_name = name;
-}
+ClapTrap::ClapTrap( std::string name ) : _name ( name ), _hp( 10 ), _ep( 10 ), _dmg ( 0 )
+{}
 
 ClapTrap::ClapTrap( ClapTrap const & other ) : _hp( 10 ), _ep( 10 ), _dmg ( 0 )
 {
