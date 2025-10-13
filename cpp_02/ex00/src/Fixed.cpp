@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/12 17:32:58 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 15:58:48 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 Fixed& Fixed::operator=( Fixed const& a )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->fixed_point = a.getRawBits();
+	this->_fixed_point = a.getRaw_bits();
 	return (*this);
 }
 
 std::ostream& operator<<( std::ostream& os, Fixed const& a )
 {
-	os << a.getRawBits();
+	os << a.getRaw_bits();
 	return (os);
 }
 
@@ -30,7 +30,7 @@ Fixed::~Fixed( void )
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed( void ) : fixed_point(0)
+Fixed::Fixed( void ) : _fixed_point(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -41,14 +41,14 @@ Fixed::Fixed( Fixed const& other )
 	*this = other;
 }
 
-int Fixed::getRawBits( void ) const
+int Fixed::getRaw_bits( void ) const
 {
-	 std::cout << "getRawBits called" << std::endl; 
-	 return (this->fixed_point); 
+	 std::cout << "getRaw_bits called" << std::endl; 
+	 return (this->_fixed_point); 
 }
 
-void Fixed::setRawBits( int const data )
+void Fixed::setRaw_bits( int const data )
 {
-	std::cout << "setRawBits called" << std::endl; 
-	this->fixed_point = data;
+	std::cout << "setRaw_bits called" << std::endl; 
+	this->_fixed_point = data;
 }
