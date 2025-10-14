@@ -4,10 +4,9 @@ OBJDIR = objects
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SOURCES = src/main.cpp \
 			src/Animal.cpp \
+			src/Brain.cpp \
 			src/Cat.cpp \
 			src/Dog.cpp \
-			src/WrongAnimal.cpp \
-			src/WrongCat.cpp \
 
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 

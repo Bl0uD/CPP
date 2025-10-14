@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:02:52 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 16:11:37 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/14 17:30:10 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog : public Animal
 {
 	private:
+		Brain* _brain;
 
 	protected:
 		std::string	name_;

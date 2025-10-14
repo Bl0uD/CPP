@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:03:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 16:11:39 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/14 17:30:05 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define CAT_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat : public Animal
 {
 	private:
+		Brain* _brain;
 
 	protected:
 		std::string	name_;
