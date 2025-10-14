@@ -6,18 +6,20 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:56:54 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 16:16:53 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/14 16:26:36 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Dog.hpp"
 #include "../includes/Cat.hpp"
+#include "../includes/WrongCat.hpp"
 
 int	main( void )
 {
 	const Animal* meta = new Animal();
 	const Animal* Sally = new Dog("Sally");
 	const Animal* Kiwi = new Cat("Kiwi");
+	const WrongAnimal* WrongKiwi = new WrongCat("WrongKiwi");
 
 	std::cout << Sally->getName() << " is a " << Sally->getType() << " ! ";
 	Sally->makeSound();
@@ -27,5 +29,8 @@ int	main( void )
 	std::cout << std::endl;
 	meta->makeSound();
 
+	std::cout << WrongKiwi->getName() << " is a " << WrongKiwi->getType() << " ! ";
+	WrongKiwi->makeSound();
+	
 	return (0);
 }
