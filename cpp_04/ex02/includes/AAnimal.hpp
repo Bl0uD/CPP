@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 14:23:05 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 14:39:24 by jdupuis          ###   ########.fr       */
+/*   Created: 2025/10/14 14:58:06 by jdupuis           #+#    #+#             */
+/*   Updated: 2025/10/14 17:48:15 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef AAnimal_HPP
+# define AAnimal_HPP
 
 # include <iostream>
 
-class ClapTrap
+class AAnimal
 {
+	private:
+	
 	protected:
-		ClapTrap();
-		
-		std::string	name_;
-		int			hp_;
-		int			ep_;
-		int			dmg_;
-
+		std::string	type_;
+	
 	public:
-		~ClapTrap();
-		ClapTrap( std::string name );
-		ClapTrap( ClapTrap const & other );
-		ClapTrap & operator=( ClapTrap const & a );
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		virtual ~AAnimal();
+		AAnimal();
+		AAnimal( std::string type );
+		AAnimal( AAnimal const & other );
+		AAnimal const & operator=( AAnimal const & copy );
+
+		std::string getType( void ) const;
+		virtual std::string	getName( void ) const = 0;
+		virtual void	makeSound( void ) const = 0;
 };
 
 #endif

@@ -6,12 +6,12 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 12:40:16 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/07 01:16:30 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 17:48:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef ZOMBIEhp_P
+# define ZOMBIEhp_P
 
 #include <iostream>
 
@@ -23,7 +23,7 @@ class Zombie
 		void	announce( void );
 		
 	private:
-		std::string	_name;
+		std::string	name_;
 };
 
 void	randomChump( std::string name );

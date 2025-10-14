@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 14:23:05 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 14:39:24 by jdupuis          ###   ########.fr       */
+/*   Created: 2025/10/14 15:03:00 by jdupuis           #+#    #+#             */
+/*   Updated: 2025/10/14 17:49:15 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class ClapTrap
+class Cat : public AAnimal
 {
-	protected:
-		ClapTrap();
-		
-		std::string	name_;
-		int			hp_;
-		int			ep_;
-		int			dmg_;
+	private:
+		Brain* _brain;
 
+	protected:
+		std::string	name_;
+	
 	public:
-		~ClapTrap();
-		ClapTrap( std::string name );
-		ClapTrap( ClapTrap const & other );
-		ClapTrap & operator=( ClapTrap const & a );
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		~Cat();
+		Cat();
+		Cat( std::string name );
+		Cat( Cat const & other );
+		Cat const & operator=( Cat const & a );
+
+		std::string	getName( void ) const;
+		void	makeSound( void ) const;
 };
 
 #endif

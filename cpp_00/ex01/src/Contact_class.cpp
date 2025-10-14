@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/02 16:53:11 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 17:48:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ Contact::~Contact( void )
 	return ;
 }
 
-std::string	Contact::get_First_name( void ) const
+std::string	Contact::get_Firstname_( void ) const
 {
-	return this->_first_name;
+	return this->_firstname_;
 }
 
-std::string	Contact::get_Last_name( void ) const
+std::string	Contact::get_Lastname_( void ) const
 {
-	return this->_last_name;
+	return this->_lastname_;
 }
 
 std::string	Contact::get_Nickname( void ) const
@@ -51,19 +51,19 @@ void	Contact::set_infos( void )
 {
 	std::cout << "What's your first name ?" << std::endl;
 	do {
-		std::getline(std::cin, this->_first_name);
-		this->_first_name = clear_string(this->_first_name);
-		if (this->_first_name.empty())
+		std::getline(std::cin, this->_firstname_);
+		this->_firstname_ = clear_string(this->_firstname_);
+		if (this->_firstname_.empty())
 			std::cout << "Please enter a valid first name: ";
-	} while (this->_first_name.empty());
+	} while (this->_firstname_.empty());
 
 	std::cout << "What's your last name ?" << std::endl;
 	do {
-		std::getline(std::cin, this->_last_name);
-		this->_last_name = clear_string(this->_last_name);
-		if (this->_last_name.empty())
+		std::getline(std::cin, this->_lastname_);
+		this->_lastname_ = clear_string(this->_lastname_);
+		if (this->_lastname_.empty())
 			std::cout << "Please enter a valid last name: ";
-	} while (this->_last_name.empty());
+	} while (this->_lastname_.empty());
 
 	std::cout << "What's your _nickname ?" << std::endl;
 	do {

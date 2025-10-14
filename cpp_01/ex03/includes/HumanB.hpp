@@ -6,12 +6,12 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:59:43 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/07 01:23:59 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 17:48:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef HUMANBhp_P
+# define HUMANBhp_P
 
 #include <iostream>
 #include "Weapon.hpp"
@@ -19,7 +19,7 @@
 class HumanB
 {
 	private:
-		std::string	const	_name;
+		std::string	const	name_;
 		Weapon				*_weaponType;
 		
 	public:

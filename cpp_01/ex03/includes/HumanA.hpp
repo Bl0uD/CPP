@@ -6,12 +6,12 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:59:31 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/07 01:23:48 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 17:48:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#ifndef HUMANAhp_P
+# define HUMANAhp_P
 
 #include <iostream>
 #include "Weapon.hpp"
@@ -19,7 +19,7 @@
 class HumanA
 {
 	private:
-		std::string	_name;
+		std::string	name_;
 		Weapon		&_weaponType;
 		
 	public:

@@ -6,12 +6,12 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:01:05 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/13 18:04:24 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/14 14:39:05 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAPhp_P
-# define SCAVTRAPhp_P
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include "ClapTrap.hpp"
 

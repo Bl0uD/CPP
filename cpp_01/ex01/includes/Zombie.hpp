@@ -6,19 +6,19 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 15:57:11 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/06 16:32:28 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 17:48:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef ZOMBIEhp_P
+# define ZOMBIEhp_P
 
 #include <iostream>
 
 class Zombie
 {
 private:
-	std::string	_name;
+	std::string	name_;
 
 public:
 	Zombie();

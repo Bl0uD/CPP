@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 14:23:05 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 14:39:24 by jdupuis          ###   ########.fr       */
+/*   Created: 2025/10/14 16:52:25 by jdupuis           #+#    #+#             */
+/*   Updated: 2025/10/14 17:30:57 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 
-class ClapTrap
+class Brain
 {
+	private:
+		std::string	_ideas[100];
+		Brain( std::string );
+	
 	protected:
-		ClapTrap();
-		
-		std::string	name_;
-		int			hp_;
-		int			ep_;
-		int			dmg_;
-
+	
 	public:
-		~ClapTrap();
-		ClapTrap( std::string name );
-		ClapTrap( ClapTrap const & other );
-		ClapTrap & operator=( ClapTrap const & a );
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		~Brain();
+		Brain();
+		Brain( Brain const & copy );
+		Brain const & operator=( Brain const & instance );
 };
 
 #endif

@@ -6,12 +6,12 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 14:23:05 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/13 17:47:45 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/14 14:38:33 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAPhp_P
-# define CLAPTRAPhp_P
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
 

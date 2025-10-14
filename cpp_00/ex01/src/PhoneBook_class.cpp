@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:48:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/02 16:58:41 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 17:48:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ void	Phonebook::search( void )
 	std::cout << std::string(45, '-') << std::endl;
 	while (i < this->_nb_contacts)
 	{
-		std::string _first_name = is_to_long(this->_contacts[i].get_First_name());
-		std::string _last_name = is_to_long(this->_contacts[i].get_Last_name());
+		std::string _firstname_ = is_to_long(this->_contacts[i].get_Firstname_());
+		std::string _lastname_ = is_to_long(this->_contacts[i].get_Lastname_());
 		std::string _nickname = is_to_long(this->_contacts[i].get_Nickname());
 		std::cout << "|" << std::setw(10) << i 
-				<< "|" << std::setw(10) << _first_name
-				<< "|" << std::setw(10) << _last_name
+				<< "|" << std::setw(10) << _firstname_
+				<< "|" << std::setw(10) << _lastname_
 				<< "|" << std::setw(10) << _nickname << "|" << std::endl;
 				i++;
 	}

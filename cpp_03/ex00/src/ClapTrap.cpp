@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:04:04 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/13 17:43:53 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 17:48:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,56 +15,56 @@
 ClapTrap::~ClapTrap( void )
 {}
 
-ClapTrap::ClapTrap( void ) : _hp( 10 ), _ep( 10 ), _dmg ( 0 )
+ClapTrap::ClapTrap( void ) : hp_( 10 ), ep_( 10 ), dmg_ ( 0 )
 {}
 
-ClapTrap::ClapTrap( std::string name ) : _name ( name ), _hp( 10 ), _ep( 10 ), _dmg ( 0 )
+ClapTrap::ClapTrap( std::string name ) : name_ ( name ), hp_( 10 ), ep_( 10 ), dmg_ ( 0 )
 {}
 
-ClapTrap::ClapTrap( ClapTrap const & other ) : _hp( 10 ), _ep( 10 ), _dmg ( 0 )
+ClapTrap::ClapTrap( ClapTrap const & other ) : hp_( 10 ), ep_( 10 ), dmg_ ( 0 )
 {
 	*this = other;
 }
 
 ClapTrap& ClapTrap::operator=( ClapTrap const & a )
 {
-	this->_name = a._name;
-	this->_hp = a._hp;
-	this->_ep = a._ep;
-	this->_dmg = a._dmg;
+	this->name_ = a.name_;
+	this->hp_ = a.hp_;
+	this->ep_ = a.ep_;
+	this->dmg_ = a.dmg_;
 	return ( *this );
 }
 
 void ClapTrap::attack(const std::string& target)
 {
-	if (this->_ep)
+	if (this->ep_)
 	{
-		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_dmg << " points of damage!" << std::endl;
-		this->_ep--;
+		std::cout << "ClapTrap " << this->name_ << " attacks " << target << ", causing " << this->dmg_ << " points of damage!" << std::endl;
+		this->ep_--;
 	}
 	else
-		std::cout << "ClapTrap " << this->_name << " could not attack !" << std::endl;
-	std::cout << "ClapTrap " << this->_name << " has " << this->_ep << " Energy." << std::endl;
+		std::cout << "ClapTrap " << this->name_ << " could not attack !" << std::endl;
+	std::cout << "ClapTrap " << this->name_ << " has " << this->ep_ << " Energy." << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap " << this->_name << " take damage -" << amount << " HP !" << std::endl;
-	if ((this->_hp - amount) <= 0)
+	std::cout << "ClapTrap " << this->name_ << " take damage -" << amount << " HP !" << std::endl;
+	if ((this->hp_ - amount) <= 0)
 	{
-		this->_hp = 0;
-		std::cout << "ClapTrap " << this->_name << " is dead !" << std::endl;
+		this->hp_ = 0;
+		std::cout << "ClapTrap " << this->name_ << " is dead !" << std::endl;
 	}
 	else
 	{
-		this->_hp -= amount;
-		std::cout << "ClapTrap " << this->_name << " has now " << this->_hp << " HP." << std::endl;
+		this->hp_ -= amount;
+		std::cout << "ClapTrap " << this->name_ << " has now " << this->hp_ << " HP." << std::endl;
 	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	this->_hp += amount;
-	std::cout << "ClapTrap " << this->_name << " repaire himself by " << amount << " HP !" << std::endl;
-	std::cout << "ClapTrap " << this->_name << " has now " << this->_hp << " HP." << std::endl;
+	this->hp_ += amount;
+	std::cout << "ClapTrap " << this->name_ << " repaire himself by " << amount << " HP !" << std::endl;
+	std::cout << "ClapTrap " << this->name_ << " has now " << this->hp_ << " HP." << std::endl;
 }

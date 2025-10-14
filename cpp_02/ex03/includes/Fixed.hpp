@@ -6,12 +6,12 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/07 21:10:24 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 17:47:45 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef FIXEDhp_P
+# define FIXEDhp_P
 
 #include <iostream>
 

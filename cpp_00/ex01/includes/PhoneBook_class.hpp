@@ -6,12 +6,12 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:47:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/01 23:14:40 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/13 17:47:45 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_HPP
-# define PHONEBOOK_CLASS_HPP
+#ifndef PHONEBOOK_CLASShp_P
+# define PHONEBOOK_CLASShp_P
 
 #include "Contact_class.hpp"
 #include "utils.hpp"
