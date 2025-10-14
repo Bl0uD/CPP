@@ -6,28 +6,33 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 16:11:14 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/14 16:32:55 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cat.hpp"
 
 Cat::~Cat()
-{}
+{
+	std::cout << "Cat destructor called" << std::endl;
+}
 
 Cat::Cat()
 {
+	std::cout << "Cat default constructor called" << std::endl;
 	this->type_ = "Cat";
 }
 
 Cat::Cat( std::string name )
 {
+	std::cout << "Cat constructor by parameter called" << std::endl;
 	this->type_ = "Cat";
 	this->name_ = name;
 }
 
 Cat::Cat( Cat const & other ) : Animal ( other )
 {
+	std::cout << "Cat constructor by copy called" << std::endl;
 	*this = other;
 }
 

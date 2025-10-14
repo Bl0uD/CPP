@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:56:54 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 16:26:36 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/14 16:37:59 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,10 @@ int	main( void )
 	std::cout << WrongKiwi->getName() << " is a " << WrongKiwi->getType() << " ! ";
 	WrongKiwi->makeSound();
 	
+	delete ( meta );
+	delete ( Sally );
+	delete ( Kiwi );
+	delete ( WrongKiwi );
+
 	return (0);
 }
