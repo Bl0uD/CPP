@@ -6,12 +6,12 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 12:40:16 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/13 17:48:26 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/15 16:29:04 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIEhp_P
-# define ZOMBIEhp_P
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
 #include <iostream>
 
