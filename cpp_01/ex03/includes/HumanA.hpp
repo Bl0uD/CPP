@@ -6,12 +6,12 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:59:31 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/13 17:48:26 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/15 16:29:35 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANAhp_P
-# define HUMANAhp_P
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
 #include <iostream>
 #include "Weapon.hpp"

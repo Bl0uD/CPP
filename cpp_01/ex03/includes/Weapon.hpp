@@ -6,12 +6,12 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:58:34 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/13 17:47:45 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/15 16:29:54 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPONhp_P
-# define WEAPONhp_P
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
 #include <iostream>
 
