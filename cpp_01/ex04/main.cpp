@@ -6,11 +6,12 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 18:26:41 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/06 20:05:47 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/15 16:12:44 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include <fstream>
 
 int	check_input(std::string filename, std::string s1, std::string s2)
@@ -64,7 +65,7 @@ int	main( int ac, char **av )
 	if (!check_input(filename, s1, s2))
 		return (1);
 
-	std::ifstream inputFile(filename);
+	std::ifstream inputFile(filename.c_str());
 	std::ofstream outputFile((filename + ".replace").c_str());
 
 	if (!try_to_open(inputFile, outputFile))
