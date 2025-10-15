@@ -10,15 +10,15 @@ OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
 $(OBJDIR)/%.o: src/%.cpp
 	@mkdir -p $(dir $@)
-	g++ $(FLAGS) -c $< -o $@
+	c++ $(FLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	g++ $(FLAGS) -o $(NAME) $(OBJECTS)
+	c++ $(FLAGS) -o $(NAME) $(OBJECTS)
 
 %.o: %.cpp
-	g++ $(FLAGS) -c $< -o $@
+	c++ $(FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJDIR)
