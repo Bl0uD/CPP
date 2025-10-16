@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/15 16:28:36 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/16 17:27:00 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Fixed
 		Fixed & operator=( Fixed const & a );	// Canonical : Assign Operator '=' to Fixed
 
 		int		getRaw_bits( void ) const;
-		void	setRaw_bits( int const data );
+		void	setRaw_bits( int const raw );
 		
 		int		toInt( void ) const;
 		float	toFloat( void ) const;

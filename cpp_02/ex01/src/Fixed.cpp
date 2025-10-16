@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/13 15:59:23 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/16 17:27:07 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ int	Fixed::getRaw_bits( void ) const
 	return (this->_fixed_point);
 }
 
-void	Fixed::setRaw_bits( int const data )
+void	Fixed::setRaw_bits( int const raw )
 {
-	this->_fixed_point = data;
+	this->_fixed_point = raw;
 }
 
 int	Fixed::toInt( void ) const
