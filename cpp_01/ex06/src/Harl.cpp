@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 13:28:13 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/16 15:18:59 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/16 17:22:24 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,15 @@ void	Harl::complain( std::string level )
 		case 0:
 			(this->*pFunction[0])();
 			std::cout << std::endl;
+			// fall through
 		case 1:
 			(this->*pFunction[1])();
 			std::cout << std::endl;
+			// fall through
 		case 2:
 			(this->*pFunction[2])();
 			std::cout << std::endl;
+			// fall through
 		case 3:
 			(this->*pFunction[3])();
 			std::cout << std::endl;
