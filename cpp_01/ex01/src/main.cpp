@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:15:33 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/06 16:33:21 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/16 15:23:03 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ int	main( void )
 	Zombie *ZombieHorde;
 	
 	ZombieHorde = zombieHorde(nb_Horde, "BOB");
-	while ( i < nb_Horde)
-		ZombieHorde[i++].announce();
-	delete[] ZombieHorde;
+	if ( ZombieHorde )
+	{
+		while ( i < nb_Horde)
+			ZombieHorde[i++].announce();
+		delete[] ZombieHorde;
+	}
 	return (0);
 }
