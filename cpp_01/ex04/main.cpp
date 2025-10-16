@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 18:26:41 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/16 17:05:51 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/16 17:09:24 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int	main( int ac, char **av )
 {
 	if ( ac != 4 )
 		return ( std::cout << "wrong argument, need : [filename] [str to replace] [replaced by]" << std::endl, 1 );
+
 	std::string	filename = av[1];
 	std::string	replaced = av[2];
 	std::string	replaceby = av[3];
@@ -86,13 +87,17 @@ int	main( int ac, char **av )
 
 	if ( !checkFile(filename) )
 		return ( 1 );
+
 	readFile( filename, &tmpFile );
+
 	if ( !searchStr( replaced, replaceby, replaced_length, &tmpFile ) )
 	{
 		std::cout << "not match in file" << std::endl;
-		return (1);
+		return ( 1 );
 	}
+
 	if ( !writeFile( filename, &tmpFile ) )
 		return ( 1 );
+
 	return (0);
 }
