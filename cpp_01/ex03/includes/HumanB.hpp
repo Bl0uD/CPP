@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:59:43 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/15 16:29:43 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/16 15:27:44 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 class HumanB
 {
 	private:
-		std::string	const	name_;
-		Weapon				*_weaponType;
+		std::string	const	name;
+		Weapon				*type;
 		
 	public:
 		HumanB( std::string name );

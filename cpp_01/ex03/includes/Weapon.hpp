@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 16:58:34 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/15 16:29:54 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/16 15:26:17 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Weapon
 {
 	private:
-		std::string	_type;
+		std::string	type;
 		
 	public:
 		Weapon( std::string type );
