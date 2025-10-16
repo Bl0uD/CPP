@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/15 16:28:49 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/16 17:25:43 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 class Fixed
 {
 	private:
-		int	_fixed_point;
-		static const int _bits = 8;
+		int					_fixed_point;
+		static const int	_bits = 8;
 
 	public:
 		~Fixed( void );								// Canonical : Destructor
@@ -28,7 +28,7 @@ class Fixed
 		Fixed & operator=( Fixed const & a );		// Canonical : Assign Operator '=' to Fixed
 
 		int		getRaw_bits( void ) const;
-		void	setRaw_bits( int const data );
+		void	setRaw_bits( int const raw );
 
 };
 
