@@ -1,7 +1,7 @@
 NAME = Sed_is_for_losers
 OBJDIR = objects
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 SOURCES = main.cpp \
 
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)

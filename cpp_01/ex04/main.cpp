@@ -6,101 +6,93 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 18:26:41 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/15 16:12:44 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/16 17:05:51 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 #include <fstream>
+#include <filesystem>
+#include <sys/stat.h>
 
-int	check_input(std::string filename, std::string s1, std::string s2)
+bool	checkFile( std::string filename )
 {
-	if (filename.empty() || s1.empty() || s2.empty())
-	{
-		std::cout << "Empty input(s)" << std::endl;
-		return (0);
-	}
-	if (s1 == s2)
-	{
-		std::cout << "strings are the same" << std::endl;
-		return (0);
-	}
-	return (1);
+	struct	stat info;
+
+	if ( stat(filename.c_str(), &info) )
+		return ( std::cout << "File inexistant.." << std::endl, false );
+	if ( info.st_mode & S_IFDIR )
+		return ( std::cout << "The 'file' is a directory.." << std::endl, false );
+	return (true);
 }
 
-int	try_to_open(std::ifstream &inputFile, std::ofstream &outputFile)
+void	readFile( std::string filename, std::string *tmpFile )
 {
-	if (!inputFile.is_open())
+	std::ifstream fileIn;
+	char		c;
+	
+	fileIn.open(filename.c_str());
+	while (1)
 	{
-		std::cout << "Could not open inputed file" << std::endl;
-		return (0);
+		if (!fileIn.get(c))
+			break;
+		*(tmpFile) += c;
 	}
-	if (!outputFile.is_open())
+	fileIn.close();
+}
+
+bool	searchStr( std::string replaced, std::string replaceby, int replaced_length, std::string *tmpFile )
+{
+	std::size_t	i = 0;
+	bool		is_found = false;
+
+	while((i = tmpFile->find(replaced, i)), i != std::string::npos)
 	{
-		std::cout << "could not open output file." << std::endl;
-		inputFile.close();
-		return (0);
+		tmpFile->erase(i, replaced_length);
+		tmpFile->insert(i, replaceby);
+		i += replaceby.length();
+		is_found = true;
 	}
-	return (1);
+	if ( is_found )
+		return ( true );
+	return ( false );
+}
+
+bool	writeFile( std::string filename, std::string *tmpFile )
+{
+	std::ofstream fileOut;
+	
+	fileOut.open((filename + ".replace").c_str());
+	if (!fileOut.good())
+	{
+		std::cout << "can't create file" << std::endl;
+		return ( false );
+	}
+
+	fileOut << *(tmpFile) << std::endl;
+	fileOut.close();
+	return ( true );
 }
 
 int	main( int ac, char **av )
 {
-	std::string filename;
-	std::string s1;
-	std::string s2;
-	
-	if (ac != 4)
+	if ( ac != 4 )
+		return ( std::cout << "wrong argument, need : [filename] [str to replace] [replaced by]" << std::endl, 1 );
+	std::string	filename = av[1];
+	std::string	replaced = av[2];
+	std::string	replaceby = av[3];
+	std::string	tmpFile;
+	int			replaced_length = replaced.length();
+
+	if ( !checkFile(filename) )
+		return ( 1 );
+	readFile( filename, &tmpFile );
+	if ( !searchStr( replaced, replaceby, replaced_length, &tmpFile ) )
 	{
-		std::cout << "Error imput:" << std::endl;
-		std::cout << "./Sed_is_for_losers [filename] [target string to chage] [string to replace with]" << std::endl;
-		return (1);
-	}
-
-	filename = av[1];
-	s1 = av[2];
-	s2 = av[3];
-
-	if (!check_input(filename, s1, s2))
-		return (1);
-
-	std::ifstream inputFile(filename.c_str());
-	std::ofstream outputFile((filename + ".replace").c_str());
-
-	if (!try_to_open(inputFile, outputFile))
-		return (1);
-
-	std::string line;
-	std::size_t s1_length = s1.length();
-	std::size_t i = 0;
-	bool is_found = false;
-
-	while (getline(inputFile, line))
-	{
-		i = 0;
-		while((i = line.find(s1, i)) != std::string::npos)
-		{
-			line.erase(i, s1_length);
-			line.insert(i, s2);
-			i += s2.length();
-			is_found = true;
-		}
-
-		outputFile << line << std::endl;
-	}
-
-	inputFile.close();
-
-	if (!is_found)
-	{
-		outputFile.close();
-		std::remove((filename + ".replace").c_str());
 		std::cout << "not match in file" << std::endl;
 		return (1);
 	}
-	
-	outputFile.close();
-	std::cout << "thanks for using replace dear" << std::endl;
+	if ( !writeFile( filename, &tmpFile ) )
+		return ( 1 );
 	return (0);
 }
