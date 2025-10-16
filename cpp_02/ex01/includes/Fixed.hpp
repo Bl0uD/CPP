@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/16 17:27:00 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/16 17:37:24 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Fixed
 
 		int		getRaw_bits( void ) const;
 		void	setRaw_bits( int const raw );
-		
+
 		int		toInt( void ) const;
 		float	toFloat( void ) const;
 	};
