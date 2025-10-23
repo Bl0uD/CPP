@@ -20,9 +20,6 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	c++ $(FLAGS) -o $(NAME) $(OBJECTS)
 
-%.o: %.cpp
-	c++ $(FLAGS) -c $< -o $@
-
 clean:
 	rm -rf $(OBJDIR)
 
