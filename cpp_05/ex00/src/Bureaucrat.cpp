@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 12:14:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/28 13:43:45 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/29 13:50:35 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name( name )
 
 Bureaucrat::Bureaucrat( Bureaucrat const &copy ) : _name( copy._name ), _grade( copy._grade ){}
 
+Bureaucrat	&Bureaucrat::operator=( Bureaucrat const &instance )
+{
+	if (this != &instance)
+		this->_grade = instance._grade;
+	return ( *this );
+}
+
 std::string	Bureaucrat::getName( void ) const
 {
 	return ( this->_name );
@@ -38,10 +45,26 @@ int	Bureaucrat::getGrade( void ) const
 	return ( this->_grade );
 }
 
+void	Bureaucrat::incrementGrade( void )
+{
+	if (_grade > 1)
+		_grade--;
+	else
+		throw Bureaucrat::GradeTooLowException();
+	std::cout << this->_name << ": current grade is : " << this->_grade << std::endl;
+}
+
+void	Bureaucrat::decrementGrade( void )
+{
+	if (_grade < 150)
+		_grade++;
+	else
+		throw Bureaucrat::GradeTooHighException();
+	std::cout << this->_name << ": current grade is : " << this->_grade << std::endl;
+}
+
 std::ostream &operator<<( std::ostream &os, Bureaucrat const &instance )
 {
 	os << instance.getName() << ", bureaucrat grade " << instance.getGrade() << "." << std::endl;
 	return ( os );
 }
-
-
