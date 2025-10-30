@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 12:14:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/29 13:50:35 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/10/30 14:41:17 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name( name )
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	_grade = grade;
-	std::cout << "new Bureaucrat created, named: " << name << ", grade: " << _grade << "." << std::endl;
+	std::cout << "new Bureaucrat created, named: " << this->_name << ", grade: " << this->_grade << "." << std::endl;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const &copy ) : _name( copy._name ), _grade( copy._grade ){}
@@ -47,8 +47,8 @@ int	Bureaucrat::getGrade( void ) const
 
 void	Bureaucrat::incrementGrade( void )
 {
-	if (_grade > 1)
-		_grade--;
+	if (this->_grade > 1)
+		this->_grade--;
 	else
 		throw Bureaucrat::GradeTooLowException();
 	std::cout << this->_name << ": current grade is : " << this->_grade << std::endl;
@@ -56,8 +56,8 @@ void	Bureaucrat::incrementGrade( void )
 
 void	Bureaucrat::decrementGrade( void )
 {
-	if (_grade < 150)
-		_grade++;
+	if (this->_grade < 150)
+		this->_grade++;
 	else
 		throw Bureaucrat::GradeTooHighException();
 	std::cout << this->_name << ": current grade is : " << this->_grade << std::endl;
