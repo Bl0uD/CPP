@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/04 19:27:43 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/04 19:55:14 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,15 @@ Fixed::Fixed( void ) : _fixed_point (0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( const int n ) : _fixed_point ( n << this->_bits )
+Fixed::Fixed( const int n )
 {
 	if (n <= (INT_MAX / (1 << _bits)) && n >= (INT_MIN / (1 << _bits)))
-		_fixed_point = roundf( n * (1 << this->_bits) );
+		_fixed_point = n << this->_bits;
 	else
+	{
 		_fixed_point = 0;
+		std::cout << "Warning: Int value " << n << " is out of range for " 
+			<< _bits << "-bit fixed-point representation, set to 0" << std::endl;	}	
 	std::cout << "Int constructor called" << std::endl;
 }
 
@@ -44,7 +47,11 @@ Fixed::Fixed( const float n )
 	if (n <= INT_MAX / (1 << _bits) && n >= INT_MIN / (1 << _bits))
 		_fixed_point = roundf( n * (1 << this->_bits) );
 	else
+	{
 		_fixed_point = 0;
+		std::cout << "Warning: Float value " << n << " is out of range for " 
+			<< _bits << "-bit fixed-point representation, set to 0" << std::endl;
+	}
 	std::cout << "Float constructor called" << std::endl;
 }
 
