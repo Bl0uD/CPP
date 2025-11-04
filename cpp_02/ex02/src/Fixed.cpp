@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/13 15:58:48 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/04 20:36:01 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,26 @@ Fixed::Fixed( void ) : _fixed_point ( 0 )
 
 Fixed::Fixed( const int n )
 {
+	if (n <= (INT_MAX / (1 << _bits)) && n >= (INT_MIN / (1 << _bits)))
+		_fixed_point = n << this->_bits;
+	else
+	{
+		_fixed_point = 0;
+		std::cout << "Warning: Int value " << n << " is out of range for " 
+			<< _bits << "-bit fixed-point representation, set to 0" << std::endl;	}	
 	// std::cout << "Int constructor called" << std::endl;
-	this->_fixed_point = n << this->_bits;
 }
 
-Fixed::Fixed( const float n ) : _fixed_point ( roundf(n * (1 << this->_bits)) )
+Fixed::Fixed( const float n )
 {
+	if (n <= INT_MAX / (1 << _bits) && n >= INT_MIN / (1 << _bits))
+		_fixed_point = roundf( n * (1 << this->_bits) );
+	else
+	{
+		_fixed_point = 0;
+		std::cout << "Warning: Float value " << n << " is out of range for " 
+			<< _bits << "-bit fixed-point representation, set to 0" << std::endl;
+	}
 	// std::cout << "Float constructor called" << std::endl;
 }
 
@@ -114,7 +128,7 @@ Fixed	Fixed::operator/( Fixed const& a ) const
 	return ( newFixed );
 }
 
-Fixed& 	Fixed::operator++( void )
+Fixed&	Fixed::operator++( void )
 {
 	this->_fixed_point++;
 	return ( *this );
