@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:04:25 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/13 18:05:22 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/04 21:15:29 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,4 @@ void	ScavTrap::beRepaired(unsigned int amount)
 void	ScavTrap::guardGate( void )
 {
 	std::cout << "ScarvTrap " << this->name_ << " is now in Gate keeper mode" << std::endl;
-
 }
