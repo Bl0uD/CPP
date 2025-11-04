@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/16 17:27:07 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/04 19:08:54 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,17 @@ Fixed::Fixed( void ) : _fixed_point (0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( const int n )
+Fixed::Fixed( const int n ) : _fixed_point ( n << this->_bits )
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_fixed_point = n << this->_bits;
 }
 
-Fixed::Fixed( const float n ) : _fixed_point ( roundf( n * (1 << this->_bits) ) )
-{}
+Fixed::Fixed( const float n )
+{
+	if (n <= INT_MAX / (1 << _bits) || n >= INT_MIN / (1 << _bits))
+		_fixed_point = roundf( n * (1 << this->_bits) );
+	std::cout << "Float constructor called" << std::endl;
+}
 
 Fixed::Fixed( Fixed const& other )
 {
