@@ -3,8 +3,11 @@ OBJDIR = objects
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SOURCES = src/main.cpp \
+			src/AForm.cpp \
 			src/Bureaucrat.cpp \
-			src/Form.cpp \
+			src/PresidentialPardonForm.cpp \
+			src/RobotomyRequestForm.cpp \
+			src/ShrubberyCreationForm.cpp \
 
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
