@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 12:12:45 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/30 13:33:09 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/07 14:44:23 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main( void )
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 
 	std::cout << std::endl;
@@ -33,7 +33,7 @@ int	main( void )
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	try
 	{
@@ -41,7 +41,7 @@ int	main( void )
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 
 	std::cout << std::endl;
@@ -51,7 +51,7 @@ int	main( void )
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 
 	std::cout << std::endl;
@@ -69,7 +69,7 @@ int	main( void )
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 
 	return ( 0 );
