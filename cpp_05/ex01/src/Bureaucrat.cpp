@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 12:14:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/30 15:54:54 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/07 16:45:27 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,16 @@ void	Bureaucrat::decrementGrade( void )
 	std::cout << this->_name << ": current grade is : " << this->_grade << std::endl;
 }
 
-void Bureaucrat::signForm( Form &instance )
+void Bureaucrat::signForm( Form &form )
 {
 	try
 	{
-		instance.beSigned(*this);
-		std::cout << this->getName() << " signed " << instance.getName() << std::endl;
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << this->getName() << " couldn't sign " << instance.getName() 
+		std::cout << this->getName() << " couldn't sign " << form.getName() 
 				  << " because " << e.what() << std::endl;
 	}
 }

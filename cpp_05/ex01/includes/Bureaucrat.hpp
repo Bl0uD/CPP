@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 12:13:05 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/30 15:54:54 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/07 16:20:34 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class Form;
 
-class	Bureaucrat
+class Bureaucrat
 {
 	private:
 		std::string const	_name;
