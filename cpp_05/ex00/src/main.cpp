@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 12:12:45 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/07 14:44:23 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/07 16:03:46 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,26 @@
 
 int	main( void )
 {
+	try
+	{
+		Bureaucrat charlie("Charlie", 0);
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
+	try
+	{
+		Bureaucrat diana("Diana", 151);
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
 	try
 	{
 		Bureaucrat alice("Alice", 12);
@@ -35,25 +55,7 @@ int	main( void )
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	try
-	{
-		Bureaucrat charlie("Charlie", 0);
-	}
-	catch (const std::exception &e)
-	{
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
-
-	std::cout << std::endl;
-	try
-	{
-		Bureaucrat diana("Diana", 151);
-	}
-	catch (const std::exception &e)
-	{
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
-
+	
 	std::cout << std::endl;
 	try
 	{

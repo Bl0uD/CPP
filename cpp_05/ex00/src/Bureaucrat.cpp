@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 12:14:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/07 15:18:17 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/07 16:00:35 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ void	Bureaucrat::incrementGrade( void )
 	if (this->_grade > 1)
 		this->_grade--;
 	else
-		throw Bureaucrat::GradeTooLowException();
+	{
+		std::cout << this->_name << "'s ";
+		throw Bureaucrat::GradeTooHighException();
+	}
 	std::cout << this->_name << ": current grade is : " << this->_grade << std::endl;
 }
 
@@ -59,7 +62,10 @@ void	Bureaucrat::decrementGrade( void )
 	if (this->_grade < 150)
 		this->_grade++;
 	else
-		throw Bureaucrat::GradeTooHighException();
+	{
+		std::cout << this->_name << "'s ";
+		throw Bureaucrat::GradeTooLowException();
+	}
 	std::cout << this->_name << ": current grade is : " << this->_grade << std::endl;
 }
 
