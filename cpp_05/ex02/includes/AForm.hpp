@@ -6,12 +6,15 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:01:16 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/31 22:00:59 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/05 19:54:19 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AFORM_HPP
 # define AFORM_HPP
+
+# include <iostream>
+# include <string>
 
 class AForm
 {
@@ -61,6 +64,6 @@ class AForm
 					return ("Already signed.");
 				}
 		};
-}
+};
 
 #endif
