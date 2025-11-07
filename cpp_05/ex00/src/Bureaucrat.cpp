@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 12:14:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/07 14:49:23 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/07 15:18:17 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name( name )
 {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	if (grade > 15)
+	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	_grade = grade;
 	std::cout << "new Bureaucrat created, named: " << this->_name << ", grade: " << this->_grade << "." << std::endl;
