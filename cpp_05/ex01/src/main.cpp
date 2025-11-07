@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 12:12:45 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/30 15:49:05 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/07 14:44:56 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 
 	std::cout << "\nCreating Form 'Form1' with invalid grades (151, 130)..." << std::endl;
@@ -35,7 +35,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 
 	std::cout << "\nCreating Form 'Form2' with valid grades (3, 12)..." << std::endl;
@@ -46,7 +46,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 
 	std::cout << "\nCreating Bureaucrat 'Jane' with grade 3..." << std::endl;
@@ -61,7 +61,7 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 
 	std::cout << "\nCreating Bureaucrat 'Alice' with grade 2..." << std::endl;
@@ -75,6 +75,6 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Exception: " << e.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 }
