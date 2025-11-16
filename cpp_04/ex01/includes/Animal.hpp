@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:58:06 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/16 23:53:23 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 00:20:00 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Animal
 
 		std::string getType( void ) const;
 		virtual std::string	getName( void ) const;
-		virtual void	makeSound( void ) const;
+		virtual void		makeSound( void ) const;
 };
 
 #endif
