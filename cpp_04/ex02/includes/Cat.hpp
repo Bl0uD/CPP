@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:03:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/16 23:53:40 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 00:19:50 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Cat : public AAnimal
 		Cat const & operator=( Cat const & a );
 
 		std::string	getName( void ) const;
-		void	makeSound( void ) const;
+		void		makeSound( void ) const;
 };
 
 #endif

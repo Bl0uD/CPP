@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:02:52 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/16 23:53:41 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 00:19:51 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Dog : public AAnimal
 		Dog const & operator=( Dog const & copy );
 
 		std::string	getName( void ) const;
-		void	makeSound( void ) const;
+		void		makeSound( void ) const;
 };
 
 #endif
