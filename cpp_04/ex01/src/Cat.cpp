@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/16 15:17:08 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 00:14:00 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,35 @@
 
 Cat::~Cat()
 {
-	delete(this->_brain);
+	delete ( this->_brain );
 	std::cout << "	🧨 Cat destructor called	🧨" << std::endl;
 }
 
-Cat::Cat() : name_ ( "Cat" )
+Cat::Cat() : Animal ( "Cat" ), name_ ( "Cat" )
 {
 	this->_brain = new Brain();
 	std::cout << "	🔨 Cat default constructor called	🔨" << std::endl;
 }
 
-Cat::Cat( std::string name ) : name_ ( name )
+Cat::Cat( std::string name ) : Animal ( "Cat" ), name_ ( name )
 {
+	this->_brain = new Brain();
 	std::cout << "	🔨 Cat constructor by parameter called	🔨" << std::endl;
 }
 
 Cat::Cat( Cat const & other ) : Animal ( other ), name_ ( other.name_ )
 {
+	this->_brain = new Brain(*other._brain);
 	std::cout << "	🔨 Cat constructor by copy called	🔨" << std::endl;
 }
 
 Cat const& Cat::operator=( Cat const & a )
 {
 	if ( this != &a )
+	{
 		this->name_ = a.name_;
+		*this->_brain = *a._brain;
+	}
 	return ( *this );
 }
 
