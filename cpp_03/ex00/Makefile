@@ -1,7 +1,7 @@
 NAME = Aaaaand..._OPEN!
 OBJDIR = objects
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow -g
 SOURCES = src/main.cpp \
 			src/ClapTrap.cpp \
 

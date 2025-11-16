@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 14:22:35 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/13 16:55:22 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/16 13:12:21 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ int	main( void )
 		Bob.attack("Patrick");
 		i++;
 	}
+	
 	Bob.beRepaired(5);
 	Bob.takeDamage(10);
+	ClapTrap	Neo(Bob);
+	Neo.takeDamage(10);
 	
 	return (0);
 }
