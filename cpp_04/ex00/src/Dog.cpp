@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/16 14:37:47 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 00:06:27 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 Dog::~Dog()
 {
-	std::cout << "	🧨 Dog destructor called	🧨" << std::endl;
+	std::cout << "\t🧨 Dog destructor called\t🧨" << std::endl;
 }
 
-Dog::Dog() : name_ ( "Dog" )
+Dog::Dog() : Animal ( "Dog" ), name_ ( "Dog" )
 {
-	std::cout << "	🔨 Dog default constructor called	🔨" << std::endl;
+	std::cout << "\t🔨 Dog default constructor called\t🔨" << std::endl;
 }
 
-Dog::Dog( std::string name ) : name_ ( name )
+Dog::Dog( std::string name ) : Animal ( "Dog" ), name_ ( name )
 {
-	std::cout << "	🔨 Dog constructor by parameter called	🔨" << std::endl;
+	std::cout << "\t🔨 Dog constructor by parameter called\t🔨" << std::endl;
 }
 
 Dog::Dog( Dog const & other ) : Animal ( other ), name_ ( other.name_ )

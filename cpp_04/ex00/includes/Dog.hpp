@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:02:52 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 16:11:37 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 00:05:34 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ class Dog : public Animal
 		std::string	name_;
 	
 	public:
-		~Dog();
+		virtual ~Dog();
 		Dog();
 		Dog( std::string name );
 		Dog( Dog const & other );
 		Dog const & operator=( Dog const & copy );
 
 		std::string	getName( void ) const;
-		void	makeSound( void ) const;
+		void		makeSound( void ) const;
 };
 
 #endif
