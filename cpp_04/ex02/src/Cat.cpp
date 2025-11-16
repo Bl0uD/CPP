@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 17:49:58 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 00:18:19 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,29 @@
 
 Cat::~Cat()
 {
-	delete this->_brain;
-	std::cout << "Cat destructor called" << std::endl;
+	std::cout << "\t🧨 Cat destructor called\t🧨" << std::endl;
 }
 
-Cat::Cat()
+Cat::Cat() : name_ ( "Cat" )
 {
-	std::cout << "Cat default constructor called" << std::endl;
-	this->type_ = "Cat";
 	this->_brain = new Brain();
+	std::cout << "\t🔨 Cat default constructor called\t🔨" << std::endl;
 }
 
-Cat::Cat( std::string name )
+Cat::Cat( std::string name ) : name_ ( name )
 {
-	std::cout << "Cat constructor by parameter called" << std::endl;
-	this->type_ = "Cat";
-	this->name_ = name;
+	std::cout << "\t🔨 Cat constructor by parameter called\t🔨" << std::endl;
 }
 
-Cat::Cat( Cat const & other ) : AAnimal ( other )
+Cat::Cat( Cat const & other ) : AAnimal ( other ), name_ ( other.name_ )
 {
-	std::cout << "Cat constructor by copy called" << std::endl;
-	*this = other;
+	std::cout << "\t🔨 Cat constructor by copy called\t🔨" << std::endl;
 }
 
 Cat const& Cat::operator=( Cat const & a )
 {
-	this->name_ = a.name_;
+	if ( this != &a )
+		this->name_ = a.name_;
 	return ( *this );
 }
 

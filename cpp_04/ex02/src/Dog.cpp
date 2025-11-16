@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 17:50:02 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 00:18:19 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,28 @@
 
 Dog::~Dog()
 {
-	delete this->_brain;
-	std::cout << "Dog destructor called" << std::endl;
+	std::cout << "\t🧨 Dog destructor called\t🧨" << std::endl;
 }
 
-Dog::Dog()
+Dog::Dog() : name_ ( "Dog" )
 {
-	std::cout << "Dog default constructor called" << std::endl;
-	this->type_ = "Dog";
-	this->_brain = new Brain();
+	std::cout << "\t🔨 Dog default constructor called\t🔨" << std::endl;
 }
 
-Dog::Dog( std::string name )
+Dog::Dog( std::string name ) : name_ ( name )
 {
-	std::cout << "Dog constructor by parameter called" << std::endl;
-	this->type_ = "Dog";
-	this->name_ = name;
+	std::cout << "\t🔨 Dog constructor by parameter called\t🔨" << std::endl;
 }
 
-Dog::Dog( Dog const & other ) : AAnimal ( other )
+Dog::Dog( Dog const & other ) : AAnimal ( other ), name_ ( other.name_ )
 {
-	std::cout << "Dog constructor by copy called" << std::endl;
-	*this = other;
+	std::cout << "\t🔨 Dog constructor by copy called\t🔨" << std::endl;
 }
 
 Dog const& Dog::operator=( Dog const & a )
 {
-	this->name_ = a.name_;
+	if ( this != &a )
+		this->name_ = a.name_;
 	return ( *this );
 }
 

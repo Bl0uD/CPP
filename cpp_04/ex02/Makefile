@@ -3,7 +3,7 @@ OBJDIR = objects
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 SOURCES = src/main.cpp \
-			src/Animal.cpp \
+			src/AAnimal.cpp \
 			src/Brain.cpp \
 			src/Cat.cpp \
 			src/Dog.cpp \

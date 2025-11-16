@@ -14,44 +14,32 @@
 
 AAnimal::~AAnimal()
 {
-	std::cout << "AAnimal destructor called" << std::endl;
+	std::cout << "\t🧨 AAnimal destructor called\t🧨" << std::endl;
 }
 
-AAnimal::AAnimal()
+AAnimal::AAnimal() : type_ ( "AAnimal" )
 {
-	std::cout << "AAnimal default constructor called" << std::endl;
-	this->type_ = ".";
+	std::cout << "\t🔨 AAnimal default constructor called\t🔨" << std::endl;
 }
 
-AAnimal::AAnimal( std::string type )
+AAnimal::AAnimal( std::string type ) : type_ ( type )
 {
-	std::cout << "AAnimal constructor by parameter called" << std::endl;
-	this->type_ = type;
+	std::cout << "\t🔨 AAnimal constructor by parameter called\t🔨" << std::endl;
 }
 
-AAnimal::AAnimal( AAnimal const & other )
+AAnimal::AAnimal( AAnimal const & other ) : type_ ( other.type_ )
 {
-	std::cout << "AAnimal constructor by copy called" << std::endl;
-	*this = other;
+	std::cout << "\t🔨 AAnimal constructor by copy called\t🔨" << std::endl;
 }
 
 AAnimal const& AAnimal::operator=( AAnimal const & a )
 {
-	this->type_ = a.type_;
+	if ( this != &a )
+		this->type_ = a.type_;
 	return ( *this );
-}
-
-std::string	AAnimal::getName( void ) const
-{
-	return ( "No name" );
 }
 
 std::string	AAnimal::getType( void ) const
 {
 	return ( this->type_ );
-}
-
-void	AAnimal::makeSound( void ) const
-{
-	std::cout << "AAnimal sound ! " << std::endl;
 }
