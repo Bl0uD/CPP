@@ -1,7 +1,7 @@
 NAME = Serena,_my_love!
 OBJDIR = objects
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 SOURCES = src/main.cpp \
 			src/ClapTrap.cpp \
 			src/ScavTrap.cpp \
