@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 17:35:51 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/16 14:46:07 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 Brain::~Brain()
 {
-	std::cout << "Brain destructor called" << std::endl;
+	std::cout << "	🧨 Brain destructor called	🧨" << std::endl;
 }
 
 Brain::Brain()
 {
-	std::cout << "Brain default constructor called" << std::endl;
+	std::cout << "	🔨 Brain default constructor called	🔨" << std::endl;
 }
 
 Brain::Brain( std::string )
 {
-	std::cout << "Brain constructor by parameter called" << std::endl;
+	std::cout << "	🔨 Brain constructor by parameter called	🔨" << std::endl;
 }
 
 Brain::Brain( Brain const & other )
 {
-	std::cout << "Brain constructor by copy called" << std::endl;
+	std::cout << "	🔨 Brain constructor by copy called	🔨" << std::endl;
 	*this = other;
 }
 
