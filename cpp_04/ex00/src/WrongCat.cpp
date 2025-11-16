@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/17 00:06:58 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 00:18:19 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ WrongCat::WrongCat( std::string name ) : WrongAnimal("WrongCat"), name_ ( name )
 
 WrongCat::WrongCat( WrongCat const & other ) : WrongAnimal ( other ), name_ ( other.name_ )
 {
-	std::cout << "	🔨 WrongCat constructor by copy called	🔨" << std::endl;
+	std::cout << "\t🔨 WrongCat constructor by copy called\t🔨" << std::endl;
 }
 
 WrongCat const& WrongCat::operator=( WrongCat const & a )

@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/17 00:06:27 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 00:18:19 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Dog::Dog( std::string name ) : Animal ( "Dog" ), name_ ( name )
 
 Dog::Dog( Dog const & other ) : Animal ( other ), name_ ( other.name_ )
 {
-	std::cout << "	🔨 Dog constructor by copy called	🔨" << std::endl;
+	std::cout << "\t🔨 Dog constructor by copy called\t🔨" << std::endl;
 }
 
 Dog const& Dog::operator=( Dog const & a )
