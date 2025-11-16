@@ -6,12 +6,15 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:57:28 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/16 17:37:24 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/13 16:34:30 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
+
+#define INT_MAX 2147483647
+#define INT_MIN -2147483648
 
 #include <iostream>
 #include <cmath>
