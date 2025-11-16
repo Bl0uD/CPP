@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/16 15:16:51 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/16 15:17:08 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::~Cat()
 {
-	delete() this->_brain;
+	delete(this->_brain);
 	std::cout << "	🧨 Cat destructor called	🧨" << std::endl;
 }
 
