@@ -6,29 +6,41 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:36:40 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 14:43:32 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/16 13:18:57 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/FragTrap.hpp"
 
 FragTrap::~FragTrap( void )
-{}
-
-FragTrap::FragTrap( FragTrap const & other ) : ClapTrap( other.name_ )
 {
-	*this = other;
+	std::cout << " ~	FragTrap destructor has been called	~" << std::endl;
+}
+
+FragTrap::FragTrap( void ) : name_( "Default" ), hp_( 10 ), ep_( 10 ), dmg_ ( 0 )
+{
+	std::cout << " ~	Default FragTrap constructor has been called	~" << std::endl;
+}
+
+FragTrap::FragTrap( FragTrap const & other ) : name_ ( other.name_ ), hp_( other.hp_ ), ep_( other.ep_ ), dmg_ ( other.dmg_ )
+{
+	std::cout << " ~	FragTrap constructor by copy has been called	~" << std::endl;
 }
 
 FragTrap::FragTrap( std::string name ) : ClapTrap( name ), name_ ( name ), hp_( 100 ), ep_( 100 ), dmg_ ( 30 )
-{}
+{
+	std::cout << " ~	FragTrap constructor by parameter has been called	~" << std::endl;
+}
 
 FragTrap& FragTrap::operator=( FragTrap const & a )
 {
-	this->name_ = a.name_;
-	this->hp_ = a.hp_;
-	this->ep_ = a.ep_;
-	this->dmg_ = a.dmg_;
+	if (this != &a)
+	{
+		name_ = a.name_;
+		hp_ = a.hp_;
+		ep_ = a.ep_;
+		dmg_ = a.dmg_;
+	}
 	return ( *this );
 }
 
@@ -47,7 +59,7 @@ void	FragTrap::attack(const std::string& target)
 void	FragTrap::takeDamage(unsigned int amount)
 {
 	std::cout << "FragTrap " << this->name_ << " take damage -" << amount << " HP !" << std::endl;
-	if ((this->hp_ - amount) <= 0)
+	if ((this->hp_ - (int)amount) <= 0)
 	{
 		this->hp_ = 0;
 		std::cout << "FragTrap " << this->name_ << " is dead !" << std::endl;

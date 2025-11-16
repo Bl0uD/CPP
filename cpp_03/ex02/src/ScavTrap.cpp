@@ -6,29 +6,41 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:04:25 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/04 21:15:29 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/16 13:18:57 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ScavTrap.hpp"
 
 ScavTrap::~ScavTrap( void )
-{}
-
-ScavTrap::ScavTrap( ScavTrap const & other ) : ClapTrap( other.name_ )
 {
-	*this = other;
+	std::cout << " ~	ScavTrap destructor has been called	~" << std::endl;
+}
+
+ScavTrap::ScavTrap( void ) : name_( "Default" ), hp_( 100 ), ep_( 50 ), dmg_ ( 20 )
+{
+	std::cout << " ~	Default ScavTrap constructor has been called	~" << std::endl;
+}
+
+ScavTrap::ScavTrap( ScavTrap const & other ) : name_ ( other.name_ ), hp_( other.hp_ ), ep_( other.ep_ ), dmg_ ( other.dmg_ )
+{
+	std::cout << " ~	ScavTrap constructor by copy has been called	~" << std::endl;
 }
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap( name ), name_ ( name ), hp_( 100 ), ep_( 50 ), dmg_ ( 20 )
-{}
+{
+	std::cout << " ~	ScavTrap constructor by parameter has been called	~" << std::endl;
+}
 
 ScavTrap& ScavTrap::operator=( ScavTrap const & a )
 {
-	this->name_ = a.name_;
-	this->hp_ = a.hp_;
-	this->ep_ = a.ep_;
-	this->dmg_ = a.dmg_;
+	if (this != &a)
+	{
+		name_ = a.name_;
+		hp_ = a.hp_;
+		ep_ = a.ep_;
+		dmg_ = a.dmg_;
+	}
 	return ( *this );
 }
 
@@ -47,7 +59,7 @@ void	ScavTrap::attack(const std::string& target)
 void	ScavTrap::takeDamage(unsigned int amount)
 {
 	std::cout << "ScavTrap " << this->name_ << " take damage -" << amount << " HP !" << std::endl;
-	if ((this->hp_ - amount) <= 0)
+	if ((this->hp_ - (int)amount) <= 0)
 	{
 		this->hp_ = 0;
 		std::cout << "ScavTrap " << this->name_ << " is dead !" << std::endl;
