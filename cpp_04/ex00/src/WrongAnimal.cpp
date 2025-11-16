@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 16:33:54 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/16 14:34:38 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,28 @@
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal destructor called" << std::endl;
+	std::cout << "	🧨 WrongAnimal destructor called	🧨" << std::endl;
 }
 
-WrongAnimal::WrongAnimal()
+WrongAnimal::WrongAnimal() : type_ ( "WrongAnimal" )
 {
-	std::cout << "WrongAnimal default constructor called" << std::endl;
-	this->type_ = ".";
+	std::cout << "	🔨 WrongAnimal default constructor called	🔨" << std::endl;
 }
 
-WrongAnimal::WrongAnimal( std::string type )
+WrongAnimal::WrongAnimal( std::string type ) : type_ ( type )
 {
-	std::cout << "WrongAnimal constructor by parameter called" << std::endl;
-	this->type_ = type;
+	std::cout << "	🔨 WrongAnimal constructor by parameter called	🔨" << std::endl;
 }
 
-WrongAnimal::WrongAnimal( WrongAnimal const & other )
+WrongAnimal::WrongAnimal( WrongAnimal const & other ) : type_ ( other.type_ )
 {
-	std::cout << "WrongAnimal constructor by copy called" << std::endl;
-	*this = other;
+	std::cout << "	🔨 WrongAnimal constructor by copy called	🔨" << std::endl;
 }
 
 WrongAnimal const& WrongAnimal::operator=( WrongAnimal const & a )
 {
-	this->type_ = a.type_;
+	if ( this != &a )
+		this->type_ = a.type_;
 	return ( *this );
 }
 

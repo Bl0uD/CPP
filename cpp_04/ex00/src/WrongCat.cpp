@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 16:34:40 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/16 14:38:17 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,28 @@
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat destructor called" << std::endl;
+	std::cout << "	🧨 WrongCat destructor called	🧨" << std::endl;
 }
 
-WrongCat::WrongCat()
+WrongCat::WrongCat() : name_ ( "WrongCat" )
 {
-	std::cout << "WrongCat default constructor called" << std::endl;
-	this->type_ = "WrongCat";
+	std::cout << "	🔨 WrongCat default constructor called	🔨" << std::endl;
 }
 
-WrongCat::WrongCat( std::string name )
+WrongCat::WrongCat( std::string name ) : name_ ( name )
 {
-	std::cout << "WrongCat constructor by parameter called" << std::endl;
-	this->type_ = "WrongCat";
-	this->name_ = name;
+	std::cout << "	🔨 WrongCat constructor by parameter called	🔨" << std::endl;
 }
 
-WrongCat::WrongCat( WrongCat const & other ) : WrongAnimal ( other )
+WrongCat::WrongCat( WrongCat const & other ) : WrongAnimal ( other ), name_ ( other.name_ )
 {
-	std::cout << "WrongCat constructor by copy called" << std::endl;
-	*this = other;
+	std::cout << "	🔨 WrongCat constructor by copy called	🔨" << std::endl;
 }
 
 WrongCat const& WrongCat::operator=( WrongCat const & a )
 {
-	this->name_ = a.name_;
+	if ( this != &a )
+		this->name_ = a.name_;
 	return ( *this );
 }
 

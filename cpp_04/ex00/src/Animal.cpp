@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/14 16:31:53 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/16 14:41:21 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,28 @@
 
 Animal::~Animal()
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "	🧨 Animal destructor called	🧨" << std::endl;
 }
 
-Animal::Animal()
+Animal::Animal() : type_ ( "Animal" )
 {
-	std::cout << "Animal default constructor called" << std::endl;
-	this->type_ = ".";
+	std::cout << "	🔨 Animal default constructor called	🔨" << std::endl;
 }
 
-Animal::Animal( std::string type )
+Animal::Animal( std::string type ) : type_ ( type )
 {
-	std::cout << "Animal constructor by parameter called" << std::endl;
-	this->type_ = type;
+	std::cout << "	🔨 Animal constructor by parameter called	🔨" << std::endl;
 }
 
-Animal::Animal( Animal const & other )
+Animal::Animal( Animal const & other ) : type_ ( other.type_ )
 {
-	std::cout << "Animal constructor by copy called" << std::endl;
-	*this = other;
+	std::cout << "	🔨 Animal constructor by copy called	🔨" << std::endl;
 }
 
 Animal const& Animal::operator=( Animal const & a )
 {
-	this->type_ = a.type_;
+	if ( this != &a )
+		this->type_ = a.type_;
 	return ( *this );
 }
 
