@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:10 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/17 00:12:12 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 00:18:19 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Brain::~Brain()
 {
-	std::cout << "	🧨 Brain destructor called	🧨" << std::endl;
+	std::cout << "\t🧨 Brain destructor called\t🧨" << std::endl;
 }
 
 Brain::Brain()
@@ -24,7 +24,7 @@ Brain::Brain()
 
 Brain::Brain( Brain const & other )
 {
-	std::cout << "	🔨 Brain constructor by copy called	🔨" << std::endl;
+	std::cout << "\t🔨 Brain constructor by copy called\t🔨" << std::endl;
 	*this = other;
 }
 
