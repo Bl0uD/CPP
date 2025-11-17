@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:58:06 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/17 00:05:26 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 16:38:41 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class WrongAnimal
 		std::string	type_;
 	
 	public:
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 		WrongAnimal();
 		WrongAnimal( std::string type );
 		WrongAnimal( WrongAnimal const & other );

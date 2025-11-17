@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:56:54 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/16 23:53:19 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 16:33:01 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ int	main( void )
 	delete ( Kiwi );
 	delete ( WrongKiwi );
 
-	return (0);
+	return ( 0 );
 }

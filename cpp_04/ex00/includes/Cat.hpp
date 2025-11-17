@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:03:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/17 00:05:36 by jdupuis          ###   ########.fr       */
+/*   Updated: 2025/11/17 16:28:59 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cat : public Animal
 		std::string	name_;
 	
 	public:
-		virtual ~Cat();
+		~Cat();
 		Cat();
 		Cat( std::string name );
 		Cat( Cat const & other );
