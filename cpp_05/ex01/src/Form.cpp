@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:35:24 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/10/30 15:54:54 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/05 11:57:46 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,10 @@ void Form::beSigned( Bureaucrat const &instance )
 
 std::ostream &operator<<( std::ostream &os, const Form &instance )
 {
-	os << "Form " << instance.getName() << " Grade: " << instance.getGradeToSign() << " & " << instance.getGradeToExec() << " status signed: " << instance.getSigned() << std::endl;
+	os << "Form " << instance.getName()
+		<< " Grade: " << instance.getGradeToSign()
+		<< " & " << instance.getGradeToExec()
+		<< " status signed: " << instance.getSigned()
+		<< std::endl;
 	return ( os );
 }
