@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   Aform.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:01:16 by jdupuis           #+#    #+#             */
-/*   Updated: 2025/11/05 19:54:19 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/05 11:39:16 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ class AForm
 		~AForm( void );
 		AForm( void );
 		AForm( std::string name, int gradeToSign, int gradeToExec );
-		AForm( Form const &copy );
-		Form &operator=( Form const &instance );
 
 		std::string getName( void ) const;
 		bool getSigned( void ) const;
