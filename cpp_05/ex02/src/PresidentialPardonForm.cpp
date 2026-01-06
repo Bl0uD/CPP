@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:03:21 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/06 14:46:29 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/06 18:00:07 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ std::string PresidentialPardonForm::getTarget( void ) const
 
 void PresidentialPardonForm::execute( Bureaucrat const &instance ) const
 {
+	if ( !this->getSigned() )
+		throw AForm::NotSigned();
 	if ( instance.getGrade() > this->getGradeToExec() )
 		throw AForm::GradeTooLowToExecException();
-	if ( instance.getGrade() > this->getGradeToSign() )
-		throw AForm::GradeTooLowToSignException();
 	std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 

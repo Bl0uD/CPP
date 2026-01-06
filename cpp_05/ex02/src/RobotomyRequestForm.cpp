@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:02:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/06 15:33:53 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/06 18:00:07 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ std::string RobotomyRequestForm::getTarget( void ) const
 
 void RobotomyRequestForm::execute( Bureaucrat const &instance ) const
 {
+	if ( !this->getSigned() )
+		throw AForm::NotSigned();
 	if ( instance.getGrade() > this->getGradeToExec() )
 		throw AForm::GradeTooLowToExecException();
-	if ( instance.getGrade() > this->getGradeToSign() )
-		throw AForm::GradeTooLowToSignException();
 	std::srand(std::time(0));
 	if ( std::rand() % 2 )
 		std::cout << "Makes some drilling noises ! " << this->getTarget() << " has been robotomized !" << std::endl;
