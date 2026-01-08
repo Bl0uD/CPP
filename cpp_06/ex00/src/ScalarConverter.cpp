@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:27 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/08 16:18:34 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/08 16:28:13 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ void	ScalarConverter::convert( std::string const &input )
 			toChar += static_cast<char>( toInt );
 			toChar += "'";
 		}
-		
-		print_results( toChar, intImpossible, floatImpossible, doubleImpossible, toInt, toFloat, toDouble );
 	}
+	
+	print_results( toChar, intImpossible, floatImpossible, doubleImpossible, toInt, toFloat, toDouble );
 }
