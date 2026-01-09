@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:27 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/09 02:17:26 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/09 13:41:31 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,33 @@ static bool parser( std::string const &input )
 		input == "-inff" )
 		return ( true );
 
-	if (input.length() == 1 && std::isprint(input[0]))
+	if ( input.length() == 1 && std::isprint(input[0]) )
 		return ( true );
 
 	size_t	i = 0;
+	bool	hasDigit = false;
 
 	if ( input[i] == '+' || input[i] == '-' )
 		i++;
 
 	while ( i < input.length() && std::isdigit(input[i]) )
+	{
+		hasDigit = true;
 		i++;
+	}
 
 	if ( i < input.length() && input[i] == '.')
 	{
 		i++;
 		while ( i < input.length() && std::isdigit(input[i]) )
+		{
+			hasDigit = true;
 			i++;
+		}
 	}
+
+	if ( !hasDigit )
+		return ( false );
 
 	if ( i == input.length() )
 		return ( true );
@@ -117,15 +127,14 @@ void	ScalarConverter::convert( std::string const &input )
 	else
 	{
 		toDouble = std::strtod( input.c_str(), NULL );
-
 		toFloat = static_cast<float>( toDouble );
 
-		if ( toDouble < INT_MIN || toDouble > INT_MAX || std::isnan(toDouble) )
+		if ( toDouble < INT_MIN || toDouble > INT_MAX || std::isnan(toDouble) || std::isinf(toDouble) )
 			intImpossible = true;
 		else
 			toInt = static_cast<int>( toDouble );
 
-		if ( std::isnan(toDouble) || std::isinf(toDouble) || toInt < 0 || toInt > 127 )
+		if ( intImpossible || std::isnan(toDouble) || std::isinf(toDouble) || toInt < 0 || toInt > 127 )
 			toChar = "impossible";
 		else if ( toInt < 32 || toInt > 126 )
 			toChar = "Non displayable";
