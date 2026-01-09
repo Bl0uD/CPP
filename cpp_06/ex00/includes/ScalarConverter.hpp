@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:16 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/09 02:15:44 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/09 13:45:15 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@
 class ScalarConverter
 {
 	private:
+		virtual ~ScalarConverter();
 		ScalarConverter();
 		ScalarConverter( std::string );
 		ScalarConverter( ScalarConverter const &copy );
 		ScalarConverter &operator=( ScalarConverter const &instance );
 
 	public:
-		virtual ~ScalarConverter(); // Destructor can remain public or protected, but allowing inheritance is rare for static classes. Usually private too for strict utility class, but standard compliant as long as constructor is private.
 		static void convert( std::string const &input );
 };
 

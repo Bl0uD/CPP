@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:27 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/09 13:41:31 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/09 14:03:40 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,10 +134,10 @@ void	ScalarConverter::convert( std::string const &input )
 		else
 			toInt = static_cast<int>( toDouble );
 
-		if ( intImpossible || std::isnan(toDouble) || std::isinf(toDouble) || toInt < 0 || toInt > 127 )
+		if ( intImpossible || toInt < 0 || toInt > 127 )
 			toChar = "impossible";
 		else if ( toInt < 32 || toInt > 126 )
-			toChar = "Non displayable";
+			toChar = "non-displayable";
 		else
 		{
 			toChar = "'";
