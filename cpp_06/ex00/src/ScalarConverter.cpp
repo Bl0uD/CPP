@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:27 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/08 16:28:13 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/09 02:17:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ static bool parser( std::string const &input )
 
 	if ( i == input.length() )
 		return ( true );
+	
+	if ( i == input.length() - 1 && input[i] == 'f' )
+		return ( true );
 
 	return ( false );
 }
@@ -96,7 +99,10 @@ static void convert_single_input(char c, std::string &toChar, int &toInt, float 
 void	ScalarConverter::convert( std::string const &input )
 {
 	if ( !parser(input) )
+	{
 		std::cout << "Error : Invalid input" << std::endl;
+		return ;
+	}
 
 	std::string toChar = "impossible";
 	int		toInt = 0;
@@ -112,16 +118,7 @@ void	ScalarConverter::convert( std::string const &input )
 	{
 		toDouble = std::strtod( input.c_str(), NULL );
 
-		if ( input != "0.0" && input != "0" && toDouble == 0.0 )
-			doubleImpossible = true;
-
 		toFloat = static_cast<float>( toDouble );
-
-		if ( toDouble < -std::numeric_limits<double>::max() || toDouble > std::numeric_limits<double>::max() )
-			doubleImpossible = true;
-
-		if ( toDouble < -std::numeric_limits<float>::max() || toDouble > std::numeric_limits<float>::max() )
-			floatImpossible = true;
 
 		if ( toDouble < INT_MIN || toDouble > INT_MAX || std::isnan(toDouble) )
 			intImpossible = true;
