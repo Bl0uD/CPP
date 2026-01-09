@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:06:14 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/09 17:33:16 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/09 17:35:03 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Base::~Base( void )
 Base *generate( void )
 {
 	static bool seeded = false;
-	if (!seeded) {
+	if ( !seeded ) {
 		srand(static_cast<unsigned int>(time(NULL)));
 		seeded = true;
 	}
@@ -40,11 +40,11 @@ Base *generate( void )
 
 void identify( Base *p )
 {
-	if (dynamic_cast<A *>(p))
+	if ( dynamic_cast<A *>(p) )
 		std::cout << "A" << std::endl;
-	else if (dynamic_cast<B *>(p))
+	else if ( dynamic_cast<B *>(p) )
 		std::cout << "B" << std::endl;
-	else if (dynamic_cast<C *>(p))
+	else if ( dynamic_cast<C *>(p) )
 		std::cout << "C" << std::endl;
 }
 

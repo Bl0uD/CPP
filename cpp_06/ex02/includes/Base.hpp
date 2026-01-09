@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 16:59:14 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/09 17:33:40 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/09 17:34:29 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class Base
 {
 	public:
 		virtual ~Base() = 0;
-
 };
 	
 Base *generate(void);
