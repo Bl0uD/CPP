@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:27 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/09 14:03:40 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/09 16:09:55 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ ScalarConverter::ScalarConverter() {};
 
 ScalarConverter::ScalarConverter( std::string ) {};
 
-ScalarConverter::ScalarConverter(ScalarConverter const &copy)
+ScalarConverter::ScalarConverter( ScalarConverter const &copy )
 {
 	*this = copy;
 }
 
-ScalarConverter &ScalarConverter::operator=(ScalarConverter const &i)
+ScalarConverter &ScalarConverter::operator=( ScalarConverter const &instance )
 {
-	(void)i;
+	(void)instance;
 	return ( *this );
 }
 
-static void print_results(std::string const &toChar, bool intImpossible, bool floatImpossible, bool doubleImpossible, int toInt, float toFloat, double toDouble){
-	
+static void print_results( std::string const &toChar, bool intImpossible, bool floatImpossible, bool doubleImpossible, int toInt, float toFloat, double toDouble )
+{
 	std::cout << "char: " << toChar << std::endl;
 
 	if (intImpossible)
@@ -96,7 +96,7 @@ static bool parser( std::string const &input )
 	return ( false );
 }
 
-static void convert_single_input(char c, std::string &toChar, int &toInt, float &toFloat, double &toDouble)
+static void convert_single_input( char c, std::string &toChar, int &toInt, float &toFloat, double &toDouble )
 {
 	toChar = "'";
 	toChar += c;
