@@ -1,4 +1,4 @@
-NAME = Start_with_a_few_functions
+NAME = Iter
 OBJDIR = objects
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
