@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:53:46 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/12 15:20:15 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/12 16:06:44 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,11 @@ Array<T>::~Array()
 
 template <typename T>
 Array<T>::Array() : _array( NULL ), _size ( 0 )
-{
-}
+{}
 
 template <typename T>
 Array<T>::Array( unsigned int n ) : _array( new T[n]() ), _size ( n )
-{
-}
+{}
 
 template <typename T>
 Array<T>::Array( const Array &copy ) : _array( new T[copy._size] ), _size( copy._size )
@@ -59,14 +57,16 @@ Array<T> &Array<T>::operator=(Array const &instance)
 }
 
 template <typename T>
-T &Array<T>::operator[](unsigned int n) {
+T &Array<T>::operator[](unsigned int n)
+{
 	if (n >= _size)
 		throw std::out_of_range("out of bound, my dear");
 	return ( _array[n] ); 
 }
 
 template <typename T>
-const T& Array<T>::operator[](unsigned int n) const {
+const T& Array<T>::operator[](unsigned int n) const
+{
 	if (n >= _size) 
 		throw std::out_of_range("out of bound, my dear");
 	return ( _array[n] );

@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:12:19 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/12 15:20:15 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/12 16:08:52 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int main(int, char**)
     std::cout << "Array filled with random values" << std::endl << std::endl;
 
     std::cout << "=== Test 3: Copy constructor and assignment operator ===" << std::endl;
-    //SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
@@ -87,5 +86,5 @@ int main(int, char**)
     std::cout << "Strings: " << strings[0] << " " << strings[1] << " " << strings[2] << std::endl;
 
     std::cout << "\n=== All tests passed! ===" << std::endl;
-    return 0;
+    return ( 0 );
 }
