@@ -2,7 +2,7 @@ NAME = Array
 OBJDIR = objects
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SOURCES = src/main.cpp \
+SOURCES = src/main.cpp
 
 OBJECTS = $(SOURCES:src/%.cpp=$(OBJDIR)/%.o)
 
