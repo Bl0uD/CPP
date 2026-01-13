@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:27 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/13 14:18:09 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/13 14:20:22 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ static bool parser( std::string const &input )
 		input == "-inff" )
 		return ( true );
 
-	// Gestion des char literals avec quotes: 'c'
 	if ( input.length() == 3 && input[0] == '\'' && input[2] == '\'' && std::isprint(input[1]) )
 		return ( true );
 
@@ -126,7 +125,6 @@ void	ScalarConverter::convert( std::string const &input )
 	bool	floatImpossible = false;
 	bool	doubleImpossible = false;
 
-	// Gestion des char literals 'c' ou c
 	if ( (input.length() == 3 && input[0] == '\'' && input[2] == '\'' && std::isprint(input[1])) )
 		convert_single_input( input[1], toChar, toInt, toFloat, toDouble );
 	else if ( input.length() == 1 && std::isprint(input[0]) && !std::isdigit(input[0]) )
@@ -136,9 +134,8 @@ void	ScalarConverter::convert( std::string const &input )
 		toDouble = std::strtod( input.c_str(), NULL );
 		toFloat = static_cast<float>( toDouble );
 
-		// Si le float est inf mais pas le double, c'est que le nombre est trop grand même pour le double
 		if ( std::isinf(toFloat) && !std::isinf(toDouble) )
-			toDouble = toFloat; // Propager l'infinité au double
+			toDouble = toFloat;
 
 		if ( toDouble < INT_MIN || toDouble > INT_MAX || std::isnan(toDouble) || std::isinf(toDouble) )
 			intImpossible = true;
