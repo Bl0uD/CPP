@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:06:14 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/09 17:35:03 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/13 15:35:14 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ void identify( Base &p )
 	}
 	catch(...)
 	{
-		std::cout << "unkown" << std::endl;
+		std::cout << "unknown" << std::endl;
 	}
 }
