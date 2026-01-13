@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 16:23:04 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/09 16:24:03 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/13 15:21:36 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define DATA_CLASS_H
 # include <iostream>
 
-class Data
+struct Data
 {
-	public:
 		int			x;
 		int			y;
 		int			z;
