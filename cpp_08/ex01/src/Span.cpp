@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:10:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/15 17:03:20 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/15 17:08:47 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,16 @@ void	Span::addNumber( int n )
 	this->_v.push_back( n );
 }
 
-void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+void	Span::addNumber( std::vector<int>::iterator begin, std::vector<int>::iterator end )
 {
-	if (_v.size() + std::distance(begin, end) > _N)
+	if ( _v.size() + std::distance(begin, end) > _N )
 		throw FullContainerException();
-	_v.insert(_v.end(), begin, end);
+	_v.insert( _v.end(), begin, end );
 }
 
 int		Span::shortestSpan()
 {
-	if (this->_v.size() <= 1)
+	if ( this->_v.size() <= 1 )
 		throw NotEnoughNumbersException();
 
 	std::vector<int>	tmp = this->_v;
