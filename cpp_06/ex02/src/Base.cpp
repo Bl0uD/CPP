@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:06:14 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/13 15:35:14 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/13 15:43:12 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void identify( Base &p )
 		A &a = dynamic_cast<A &>(p);
 		(void)a;
 		std::cout << "A" << std::endl;
-		return;
+		return
+		;
 	}
 	catch(...){}
 
