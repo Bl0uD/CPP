@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 00:26:36 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/26 14:52:49 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/26 14:55:43 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main( int ac, char **av )
 		std::cout << "Usage: ./btc [file]" << std::endl;
 		return ( 1 );
 	}
-
 	try
 	{
 		BitcoinExchange	exchange;
@@ -29,6 +28,5 @@ int	main( int ac, char **av )
 	{
 		std::cout << e.what() << std::endl;
 	}
-
 	return ( 0 );
 }
