@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 00:50:32 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/22 18:04:39 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/26 14:52:26 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 class BitcoinExchange
 {
 	private:
-		std::map<std::string, double> _btcPrices;
+		std::map<std::string, double>	_btcPrices;
 		void	_readDatabase();
 		bool	_valideDate( std::string const &date );
 		double	_validePrice( std::string const &price );

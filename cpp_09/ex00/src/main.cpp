@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 00:26:36 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/19 20:10:36 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/26 14:52:49 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main( int ac, char **av )
 
 	try
 	{
-		BitcoinExchange exchange;
+		BitcoinExchange	exchange;
 		exchange.execute( av[1] );
 	}
 	catch ( std::exception &e )

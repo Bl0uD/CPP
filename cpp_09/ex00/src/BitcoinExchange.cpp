@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 00:50:43 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/22 18:21:58 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/26 14:55:16 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ BitcoinExchange	&BitcoinExchange::operator=( BitcoinExchange const &instance )
 void	clearStr( std::string &str )
 {
 	size_t	i = 0;
-	
+
 	while ( i < str.length() )
 	{
 		if ( isspace(str[i]) )
@@ -58,17 +58,17 @@ bool	BitcoinExchange::_valideDate( std::string const &date )
 {
 	bool	valideDate = true;
 	bool	impossibleDate = false;
+	char	sep1;
+	char	sep2;
+	int 	year;
+	int 	month;
+	int		day;
 
     if ( date.length() != 10 )
 		valideDate = false;
 	else if ( date[4] != '-' || date[7] != '-' )
 		valideDate = false;
 
-    int 	year;
-	int 	month;
-	int		day;
-    char	sep1;
-	char	sep2;
     std::istringstream ss( date );
     ss >> year >> sep1 >> month >> sep2 >> day;
 
@@ -78,7 +78,6 @@ bool	BitcoinExchange::_valideDate( std::string const &date )
 		valideDate = false;
     else if ( day < 1 || day > 31 )
 		valideDate = false;
-	
 	if ( valideDate == true )
 	{
 		int maxDays = 31;
@@ -96,7 +95,6 @@ bool	BitcoinExchange::_valideDate( std::string const &date )
 			impossibleDate = true;
 		}
 	}
-	
 	if ( valideDate == false )
 	{
 		if ( impossibleDate )
@@ -104,7 +102,6 @@ bool	BitcoinExchange::_valideDate( std::string const &date )
 		else
 			std::cout << "Error: bad input => " << date << std::endl;
 	}
-	
 	return ( valideDate );
 }
 
@@ -118,7 +115,6 @@ double	BitcoinExchange::_validePrice( std::string const &price )
 		std::cout << "Error: bad input => " << price << std::endl;
 		return ( -1 );
 	}
-
 	if (priceValue < 0)
 	{
 		std::cout << "Error: not a positive number." << std::endl;
@@ -129,13 +125,13 @@ double	BitcoinExchange::_validePrice( std::string const &price )
 		std::cout << "Error: too large a number." << std::endl;
 		return ( -1 );
 	}
-	
 	return (priceValue);
 }
 
 void	BitcoinExchange::_multiplyWithQuote(std::string const &date, double price)
 {
-	std::map<std::string, double>::iterator it = _btcPrices.find( date );
+	std::map<std::string, double>::iterator	it = _btcPrices.find( date );
+
 	if ( it != _btcPrices.end() )
 		std::cout << date << " => " << price << " = " << price * it->second << std::endl;
 	else
@@ -159,11 +155,9 @@ void	BitcoinExchange::_readDatabase()
 
         std::string line;
 
-        //// Check if first line is date,exchange_rate
         std::getline(file, line);
         if (line != "date,exchange_rate")
             throw InvalidColumnFormatException();
-
         while (std::getline(file, line))
 		{
             std::string date, price;
@@ -171,14 +165,12 @@ void	BitcoinExchange::_readDatabase()
             std::getline(ss, date, ',');
             std::getline(ss, price, ',');
 
-            // Parse price using istringstream
             double priceValue;
             std::istringstream priceStream(price);
             if (!(priceStream >> priceValue))
 				throw InvalidPriceFormatException();
             _btcPrices[date] = priceValue;
         }
-
         file.close();
 }
 
@@ -191,10 +183,8 @@ void	BitcoinExchange::execute( char const *fileName )
 	std::string	line;
 
 	std::getline( file, line );
-
 	if ( line != "date | value" )
 		throw InvalidColumnFormatException();
-	
 	while ( std::getline(file, line) )
 	{
 		std::istringstream ss( line );
@@ -207,16 +197,13 @@ void	BitcoinExchange::execute( char const *fileName )
 		clearStr( date );
 		clearStr( valueStr );
 		
-		// Vérifier si la ligne a un format valide
 		if ( date.empty() || valueStr.empty() )
 		{
 			std::cout << "Error: bad input => " << line << std::endl;
 			continue;
 		}
-	
 		if ( !_valideDate( date ) )
 			continue;
-
 		double	priceValue = _validePrice( valueStr );
 		if ( priceValue != -1 )
 			_multiplyWithQuote( date, priceValue );
