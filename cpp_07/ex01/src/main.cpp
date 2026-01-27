@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 00:41:42 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/12 16:07:54 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/27 15:36:06 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main()
 	std::cout << "=== Status array ===" << std::endl;
 	std::cout << "Only read array : ";	
 	iter(only_read_array, 5, printInt<int>);
-	
+
 	std::cout << "\nArray that will get changed : ";	
 	iter(intArray, 5, printInt<int>);
 	std::cout << "\n";

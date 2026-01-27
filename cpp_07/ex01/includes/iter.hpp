@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 00:41:51 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/10 00:53:00 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/27 15:35:18 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string>
 
 template <typename T, typename F>
-void iter( T *address, size_t length, F function )
+void iter( T *address, const size_t length, F function )
 {
 	size_t	i = 0;
 	while (i < length)
