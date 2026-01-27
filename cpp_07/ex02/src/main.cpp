@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:12:19 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/12 16:08:52 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/27 15:24:28 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
-        std::cerr << "Exception caught for negative index: " << e.what() << std::endl;
+        std::cout << "Exception caught for negative index: " << e.what() << std::endl;
     }
     try
     {
@@ -69,7 +69,7 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
-        std::cerr << "Exception caught for index >= size: " << e.what() << std::endl;
+        std::cout << "Exception caught for index >= size: " << e.what() << std::endl;
     }
 
     for (int i = 0; i < MAX_VAL; i++)

@@ -6,13 +6,14 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 00:56:25 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/12 15:17:39 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/27 15:34:00 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
+# include <exception>
 # include <iostream>
 # include <string>
 
