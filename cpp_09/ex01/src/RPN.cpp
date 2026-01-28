@@ -6,19 +6,19 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:57:12 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/27 16:28:48 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/28 19:19:08 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/RPN.hpp"
 
-RPN::emptyStackException::emptyStackException(const std::string& msg) : std::runtime_error(msg)
+RPN::emptyStackException::emptyStackException( const std::string& msg ) : std::runtime_error( msg )
 {}
 
-RPN::invalidArgException::invalidArgException(const std::string& msg) : std::runtime_error(msg)
+RPN::invalidArgException::invalidArgException( const std::string& msg ) : std::runtime_error( msg )
 {}
 
-RPN::divisionByZero::divisionByZero(const std::string& msg) : std::runtime_error(msg)
+RPN::divisionByZero::divisionByZero( const std::string& msg ) : std::runtime_error( msg )
 {}
 
 RPN::~RPN( void )
