@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:10:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/30 14:49:56 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/30 15:47:25 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	Span::addNumber( int n )
 	this->_v.push_back( n );
 }
 
-void	Span::addNumber( std::vector<int>::iterator begin, std::vector<int>::iterator end )
+void	Span::addMultipleNumbers( std::vector<int>::iterator begin, std::vector<int>::iterator end )
 {
 	if ( _v.size() + std::distance(begin, end) > _N )
 		throw FullContainerException();

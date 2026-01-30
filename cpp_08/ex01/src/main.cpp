@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:31:16 by cgodecke          #+#    #+#             */
-/*   Updated: 2026/01/15 17:11:58 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/30 15:47:31 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int main()
 	}
 	try
 	{
-		sp2.addNumber( v.begin(), v.end() );
+		sp2.addMultipleNumbers( v.begin(), v.end() );
 		std::cout << "shortest span: " << sp2.shortestSpan() << std::endl;
 		std::cout << "longest span: " << sp2.longestSpan() << std::endl;
 	}
@@ -75,7 +75,7 @@ int main()
 	}
 	try
 	{
-		sp3.addNumber(v2.begin(), v2.end());
+		sp3.addMultipleNumbers(v2.begin(), v2.end());
 		std::cout << "shortest span: " << sp3.shortestSpan() << std::endl;
 		std::cout << "longest span: " << sp3.longestSpan() << std::endl;
 	}
