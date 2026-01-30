@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:10:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/15 17:08:47 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/01/30 14:49:56 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		Span::shortestSpan()
 	std::sort(tmp.begin(), tmp.end());
 
 	int					min = tmp[1] - tmp[0];
-	unsigned int		i = 1;
+	unsigned int		i = 2;
 	
 	while ( i < tmp.size() )
 	{
