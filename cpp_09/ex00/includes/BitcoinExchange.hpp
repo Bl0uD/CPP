@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 00:50:32 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/02/06 15:23:58 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/02/06 16:00:42 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,21 @@ class BitcoinExchange
 				}
 		};
 		
-		class InvalidLineFormatException : public std::exception
+		class InvalidInputLineFormatException : public std::exception
 		{
 			public:
 				virtual const char *what() const throw()
 				{
 					return ( "Error: Invalid line format. Expected 'date,exchange_rate'" );
+				}
+		};
+
+		class InvalidDataLineFormatException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return ( "Error: Invalid line format. Expected 'date | value'" );
 				}
 		};
 		

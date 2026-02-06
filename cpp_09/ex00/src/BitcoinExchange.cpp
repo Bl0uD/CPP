@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 00:50:43 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/02/06 15:30:41 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/02/06 16:00:59 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ void	BitcoinExchange::_readDatabase()
 
         std::getline(file, line);
         if (line != "date,exchange_rate")
-            throw InvalidLineFormatException();
+            throw InvalidInputLineFormatException();
         while (std::getline(file, line))
 		{
             std::string date, price;
@@ -187,7 +187,7 @@ void	BitcoinExchange::execute( char const *fileName )
 
 	std::getline( file, line );
 	if ( line != "date | value" )
-		throw InvalidLineFormatException();
+		throw InvalidDataLineFormatException();
 	while ( std::getline(file, line) )
 	{
 		std::istringstream ss( line );
