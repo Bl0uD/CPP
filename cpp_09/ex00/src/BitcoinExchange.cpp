@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 00:50:43 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/26 14:55:16 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/02/06 14:57:48 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,10 @@ bool	BitcoinExchange::_valideDate( std::string const &date )
 		else if ( month == 2 )
 		{
 			bool isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-			maxDays = isLeapYear ? 29 : 28;
+			if ( isLeapYear )
+				maxDays = 29;
+			else
+				maxDays = 28;
 		}
 		
 		if ( day > maxDays )
