@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 00:50:32 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/26 14:52:26 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/02/06 15:23:58 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 class BitcoinExchange
 {
 	private:
-		std::map<std::string, double>	_btcPrices;
+		std::map<std::string, double>	_exchangeMap;
 		void	_readDatabase();
 		bool	_valideDate( std::string const &date );
-		double	_validePrice( std::string const &price );
-		void	_multiplyWithQuote( std::string const &date, double price );
+		double	_valideBtcAmount( std::string const &price );
+		void	_displayExchangeResult( std::string const &date, double price );
 		
 	public:
 		~BitcoinExchange();
@@ -47,12 +47,12 @@ class BitcoinExchange
 				}
 		};
 		
-		class InvalidColumnFormatException : public std::exception
+		class InvalidLineFormatException : public std::exception
 		{
 			public:
 				virtual const char *what() const throw()
 				{
-					return ( "Error: Invalid column format. Expected 'date,exchange_rate'" );
+					return ( "Error: Invalid line format. Expected 'date,exchange_rate'" );
 				}
 		};
 		

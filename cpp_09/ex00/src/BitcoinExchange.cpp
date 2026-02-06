@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 00:50:43 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/02/06 14:57:48 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/02/06 15:30:41 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ BitcoinExchange::BitcoinExchange( BitcoinExchange const &copy )
 BitcoinExchange	&BitcoinExchange::operator=( BitcoinExchange const &instance )
 {
 	if (this != &instance)
-		_btcPrices = instance._btcPrices;
+		_exchangeMap = instance._exchangeMap;
 	return ( *this );
 }
 
@@ -108,44 +108,44 @@ bool	BitcoinExchange::_valideDate( std::string const &date )
 	return ( valideDate );
 }
 
-double	BitcoinExchange::_validePrice( std::string const &price )
+double	BitcoinExchange::_valideBtcAmount( std::string const &price )
 {
-	double	priceValue;
+	double	amountBtc;
 	std::istringstream priceStream( price );
 
-	if ( !(priceStream >> priceValue) )
+	if ( !(priceStream >> amountBtc) )
 	{
 		std::cout << "Error: bad input => " << price << std::endl;
 		return ( -1 );
 	}
-	if (priceValue < 0)
+	if (amountBtc < 0)
 	{
 		std::cout << "Error: not a positive number." << std::endl;
 		return ( -1 );
 	}
-	else if (priceValue > 1000)
+	else if (amountBtc > 1000)
 	{
 		std::cout << "Error: too large a number." << std::endl;
 		return ( -1 );
 	}
-	return (priceValue);
+	return (amountBtc);
 }
 
-void	BitcoinExchange::_multiplyWithQuote(std::string const &date, double price)
+void	BitcoinExchange::_displayExchangeResult( std::string const &date, double btcAmount )
 {
-	std::map<std::string, double>::iterator	it = _btcPrices.find( date );
+	std::map<std::string, double>::iterator	it = _exchangeMap.find( date );
 
-	if ( it != _btcPrices.end() )
-		std::cout << date << " => " << price << " = " << price * it->second << std::endl;
+	if ( it != _exchangeMap.end() )
+		std::cout << date << " => " << btcAmount << " = " << btcAmount * it->second << std::endl;
 	else
 	{
-		std::map<std::string, double>::iterator it2 = _btcPrices.lower_bound(date);
-		if ( it2 == _btcPrices.begin() )
-			std::cout << date << " => " << price << " = " << price * it2->second << std::endl;
+		std::map<std::string, double>::iterator it2 = _exchangeMap.lower_bound( date );
+		if ( it2 == _exchangeMap.begin() )
+			std::cout << date << " => " << btcAmount << " = " << btcAmount * it2->second << std::endl;
 		else
 		{
 			it2--;
-			std::cout << date << " => " << price << " = " << price * it2->second << std::endl;
+			std::cout << date << " => " << btcAmount << " = " << btcAmount * it2->second << std::endl;
 		}
 	}
 }
@@ -160,7 +160,7 @@ void	BitcoinExchange::_readDatabase()
 
         std::getline(file, line);
         if (line != "date,exchange_rate")
-            throw InvalidColumnFormatException();
+            throw InvalidLineFormatException();
         while (std::getline(file, line))
 		{
             std::string date, price;
@@ -168,11 +168,11 @@ void	BitcoinExchange::_readDatabase()
             std::getline(ss, date, ',');
             std::getline(ss, price, ',');
 
-            double priceValue;
+            double priceBtc;
             std::istringstream priceStream(price);
-            if (!(priceStream >> priceValue))
+            if (!(priceStream >> priceBtc))
 				throw InvalidPriceFormatException();
-            _btcPrices[date] = priceValue;
+            _exchangeMap[date] = priceBtc;
         }
         file.close();
 }
@@ -187,7 +187,7 @@ void	BitcoinExchange::execute( char const *fileName )
 
 	std::getline( file, line );
 	if ( line != "date | value" )
-		throw InvalidColumnFormatException();
+		throw InvalidLineFormatException();
 	while ( std::getline(file, line) )
 	{
 		std::istringstream ss( line );
@@ -207,9 +207,9 @@ void	BitcoinExchange::execute( char const *fileName )
 		}
 		if ( !_valideDate( date ) )
 			continue;
-		double	priceValue = _validePrice( valueStr );
-		if ( priceValue != -1 )
-			_multiplyWithQuote( date, priceValue );
+		double	amountBtc = _valideBtcAmount( valueStr );
+		if ( amountBtc != -1 )
+			_displayExchangeResult( date, amountBtc );
 	}
 	file.close();
 }
