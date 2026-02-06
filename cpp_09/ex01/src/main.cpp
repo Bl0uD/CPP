@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:57:25 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/27 16:25:18 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/02/06 16:48:21 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main( int ac, char **av )
 	try
 	{
 		RPN	rpn( av[1] );
-		std::cout << rpn.getResult() << std::endl;
 	}
 	catch ( std::exception &e )
 	{

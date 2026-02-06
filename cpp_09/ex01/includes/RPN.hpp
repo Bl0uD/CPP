@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:57:01 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/27 16:28:26 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/02/06 16:51:21 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class RPN
 		RPN &operator=( const RPN &instance );
 
 		double	getResult();
+		void	execute( const std::string &inputStr );
 
 	class emptyStackException : public std::runtime_error
 	{
