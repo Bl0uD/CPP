@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:53:46 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/12 16:06:44 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:33:23 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,16 @@ Array<T> &Array<T>::operator=(Array const &instance)
 {
 	if ( this != &instance )
 	{
-		delete [] this->_array;
-		_size = instance._size;
-		_array = new T[_size];
+		T		*newArray = new T[instance._size];
 		unsigned int i = 0;
-		while (i < _size)
+		while (i < instance._size)
 		{
-			_array[i] = instance._array[i];
+			newArray[i] = instance._array[i];
 			i++;
 		}
+		delete [] this->_array;
+		this->_array = newArray;
+		this->_size = instance._size;
 	}
 	return ( *this );
 }
@@ -70,4 +71,10 @@ const T& Array<T>::operator[](unsigned int n) const
 	if (n >= _size) 
 		throw std::out_of_range("out of bound, my dear");
 	return ( _array[n] );
+}
+
+template <typename T>
+unsigned int Array<T>::size( void ) const
+{
+	return ( _size );
 }

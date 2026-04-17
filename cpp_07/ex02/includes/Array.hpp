@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 00:56:25 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/27 15:34:00 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:33:23 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ARRAY_HPP
 
 # include <exception>
+# include <stdexcept>
 # include <iostream>
 # include <string>
 
@@ -32,6 +33,7 @@ class Array
 		Array &operator=( const Array &instance );
 		T &operator[](unsigned int n);
 		const T &operator[](unsigned int n) const;
+		unsigned int size( void ) const;
 };
 
 # include "../src/Array.tpp"
