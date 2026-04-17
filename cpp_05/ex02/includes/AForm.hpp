@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Aform.hpp                                          :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:01:16 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/05 19:03:56 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:05:07 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class AForm
 		const int			_gradeToExec;
 		
 	public:
-		~AForm( void );
+		virtual ~AForm( void );
 		AForm( void );
 		AForm( std::string name, int gradeToSign, int gradeToExec );
 		AForm( AForm const &copy );
@@ -92,6 +92,14 @@ class AForm
 				virtual const char* what() const throw()
 				{
 					return ("Not signed.");
+				}
+		};
+		class CouldNotCreateFile : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Could not create shrubbery file.");
 				}
 		};
 };

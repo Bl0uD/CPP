@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:02:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/06 18:00:07 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:04:42 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void ShrubberyCreationForm::execute( Bureaucrat const &instance ) const
 	if ( instance.getGrade() > this->getGradeToExec() )
 		throw AForm::GradeTooLowToExecException();
 	std::ofstream outfile ( this->getTarget() + "_shrubbery" );
+	if (!outfile.is_open())
+		throw AForm::CouldNotCreateFile();
 	outfile << "         &&& &&  & &&" << std::endl;
 	outfile << "      && &\\/&\\|& ()|/ @, &&" << std::endl;
 	outfile << "      &\\/(/&/&||/& /_/)_&/_&" << std::endl;

@@ -6,13 +6,14 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:03:18 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/06 14:36:15 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:01:14 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
 
+# include "AForm.hpp"
 # include <iostream>
 # include <string>
 
