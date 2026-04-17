@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 14:03:20 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/31 10:52:26 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 14:11:31 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class PmergeMe
 {
 	private:
 		std::deque<int>	_before;
+		std::vector<std::string>	_inputArgs;
 		std::deque<int>	_dequeStorage;
 		std::list<int>	_listStorage;
 		double			_timeDeque;

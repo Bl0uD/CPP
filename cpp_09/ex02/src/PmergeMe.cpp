@@ -6,11 +6,28 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 19:08:08 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/31 10:59:30 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 14:11:31 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PmergeMe.hpp"
+
+#include <cerrno>
+#include <climits>
+#include <sstream>
+
+static bool parsePositiveIntToken( const std::string &token, int &value )
+{
+	char *end = 0;
+	long parsed;
+
+	errno = 0;
+	parsed = std::strtol( token.c_str(), &end, 10 );
+	if ( errno != 0 || end == token.c_str() || *end != '\0' || parsed <= 0 || parsed > INT_MAX )
+		return ( false );
+	value = static_cast<int>( parsed );
+	return ( true );
+}
 
 PmergeMe::~PmergeMe( void ) {}
 
@@ -18,20 +35,27 @@ PmergeMe::PmergeMe( void ) {}
 
 PmergeMe::PmergeMe( char **av )
 {
-    int i = 0;
-    while( av[i] )
-    {
-        int value = std::atoi( av[i] );
-		if ( value > 0 )
+	int i = 0;
+	bool hasValue = false;
+	while( av[i] )
+	{
+		this->_inputArgs.push_back( av[i] );
+		std::stringstream argStream( av[i] );
+		std::string token;
+		while ( argStream >> token )
 		{
+			int value;
+			if ( !parsePositiveIntToken( token, value ) )
+				throw InvalidInputException();
 			this->_before.push_back( value );
 			this->_dequeStorage.push_back( value );
 			this->_listStorage.push_back( value );
+			hasValue = true;
 		}
-		else
-			throw InvalidInputException();
-        i++;
-    }
+		i++;
+	}
+	if ( !hasValue )
+		throw InvalidInputException();
 }
 
 PmergeMe::PmergeMe( PmergeMe const &copy )
@@ -44,6 +68,7 @@ PmergeMe&PmergeMe::operator=( PmergeMe const &instance )
 	if (this != &instance)
 	{
 		this->_before = instance._before;
+		this->_inputArgs = instance._inputArgs;
 		this->_dequeStorage = instance._dequeStorage;
 		this->_listStorage = instance._listStorage;
 		this->_timeDeque = instance._timeDeque;
@@ -300,7 +325,7 @@ static void fordJohnsonList( std::list<int> &container )
 void	PmergeMe::print()
 {
 	std::cout << "Before: " << _before << std::endl;
-	std::cout << "After:  " << _dequeStorage << std::endl;
+	std::cout << "After: " << _dequeStorage << std::endl;
 	std::cout << "Time to process a range of " << _dequeStorage.size() 
 			<< " elements with std::deque : " << _timeDeque << " us" << std::endl;
 	std::cout << "Time to process a range of " << _listStorage.size() 
@@ -310,11 +335,43 @@ void	PmergeMe::print()
 void	PmergeMe::execute()
 {
 	clock_t start = clock();
-	fordJohnsonDeque( this->_dequeStorage );
+	std::deque<int> dequeWork;
+	std::vector<std::string>::const_iterator argIt = this->_inputArgs.begin();
+	while ( argIt != this->_inputArgs.end() )
+	{
+		std::stringstream argStream( *argIt );
+		std::string token;
+		while ( argStream >> token )
+		{
+			int value;
+			if ( !parsePositiveIntToken( token, value ) )
+				throw InvalidInputException();
+			dequeWork.push_back( value );
+		}
+		++argIt;
+	}
+	fordJohnsonDeque( dequeWork );
+	this->_dequeStorage = dequeWork;
 	this->_timeDeque = static_cast<double>( clock() - start ) * 1000000 / CLOCKS_PER_SEC;
 
 	start = clock();
-	fordJohnsonList( this->_listStorage );
+	std::list<int> listWork;
+	argIt = this->_inputArgs.begin();
+	while ( argIt != this->_inputArgs.end() )
+	{
+		std::stringstream argStream( *argIt );
+		std::string token;
+		while ( argStream >> token )
+		{
+			int value;
+			if ( !parsePositiveIntToken( token, value ) )
+				throw InvalidInputException();
+			listWork.push_back( value );
+		}
+		++argIt;
+	}
+	fordJohnsonList( listWork );
+	this->_listStorage = listWork;
 	this->_timeList = static_cast<double>( clock() - start ) * 1000000 / CLOCKS_PER_SEC;
 
 	this->print();
