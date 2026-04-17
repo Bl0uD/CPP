@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:57:12 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/02/06 16:57:56 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 12:01:15 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,9 @@ void	RPN::execute( const std::string &inputStr )
 	std::string			token;
 	int					num;
 
-	while ( std::getline( ss, token, ' ' ) )
+	while ( ss >> token )
 	{
-		if ( token.empty() )
-			continue;
-		if ( ((token.length() == 1 && isdigit(token[0])) ||
-				(token.length() == 2 && token[0] == '-' && isdigit(token[1]))) )
+		if ( token.length() == 1 && token[0] >= '0' && token[0] <= '9' )
 		{
 			std::stringstream(token) >> num;
 			_stack.push(num);
