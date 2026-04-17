@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:27:42 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/13 14:46:49 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:51:38 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ class NotFoundExeption : public std::exception
 			return ("Number not found");
 		}
 };
+
+template <typename T>
+typename T::iterator easyfind( T &container, int n );
+
+template <typename T>
+typename T::const_iterator easyfind( const T &container, int n );
 
 # include "../src/easyfind.tpp"
 

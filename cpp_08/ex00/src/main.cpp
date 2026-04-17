@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:56:57 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/15 16:42:40 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:51:38 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,17 @@ int main()
 	try
 	{
 		std::cout << "Found: " << *easyfind(d, 350) << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\033[33m" << "Test const container\n"<< "\033[0m";
+	const std::list<int> clist(v.begin(), v.end());
+	try
+	{
+		std::cout << "Found const: " << *easyfind(clist, 7) << std::endl;
 	}
 	catch (std::exception &e)
 	{
