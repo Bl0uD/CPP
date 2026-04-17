@@ -6,11 +6,13 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 00:50:43 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/02/06 16:00:59 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 12:01:15 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/BitcoinExchange.hpp"
+
+#include <cctype>
 
 BitcoinExchange::~BitcoinExchange( void )
 {
@@ -47,7 +49,7 @@ void	clearStr( std::string &str )
 
 	while ( i < str.length() )
 	{
-		if ( isspace(str[i]) )
+		if ( std::isspace( static_cast<unsigned char>( str[i] ) ) )
 			str.erase(i, 1);
 		else
 			i++;
@@ -56,64 +58,50 @@ void	clearStr( std::string &str )
 
 bool	BitcoinExchange::_valideDate( std::string const &date )
 {
-	bool	valideDate = true;
-	bool	impossibleDate = false;
+	int	year;
+	int	month;
+	int	day;
 	char	sep1;
 	char	sep2;
-	int 	year;
-	int 	month;
-	int		day;
+	char	extra;
 
-    if ( date.length() != 10 )
-		valideDate = false;
-	else if ( date[4] != '-' || date[7] != '-' )
-		valideDate = false;
-
-    std::istringstream ss( date );
-    ss >> year >> sep1 >> month >> sep2 >> day;
-
-    if ( valideDate == true && (ss.fail() || sep1 != '-' || sep2 != '-') )
-		valideDate = false;
-    else if ( month < 1 || month > 12 )
-		valideDate = false;
-    else if ( day < 1 || day > 31 )
-		valideDate = false;
-	if ( valideDate == true )
+	std::istringstream ss( date );
+	if ( !(ss >> year >> sep1 >> month >> sep2 >> day) || sep1 != '-' || sep2 != '-'
+		|| (ss >> extra) )
+	{
+		std::cout << "Error: bad input => " << date << std::endl;
+		return ( false );
+	}
+	if ( month < 1 || month > 12 || day < 1 || day > 31 )
+	{
+		std::cout << "Error: bad input => " << date << std::endl;
+		return ( false );
+	}
 	{
 		int maxDays = 31;
 		if ( month == 4 || month == 6 || month == 9 || month == 11 )
 			maxDays = 30;
 		else if ( month == 2 )
 		{
-			bool isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-			if ( isLeapYear )
-				maxDays = 29;
-			else
-				maxDays = 28;
+			bool isLeapYear = ( year % 4 == 0 && year % 100 != 0 ) || ( year % 400 == 0 );
+			maxDays = isLeapYear ? 29 : 28;
 		}
-		
 		if ( day > maxDays )
 		{
-			valideDate = false;
-			impossibleDate = true;
+			std::cout << "Error: impossible date => " << date << std::endl;
+			return ( false );
 		}
 	}
-	if ( valideDate == false )
-	{
-		if ( impossibleDate )
-			std::cout << "Error: impossible date => " << date << std::endl;
-		else
-			std::cout << "Error: bad input => " << date << std::endl;
-	}
-	return ( valideDate );
+	return ( true );
 }
 
 double	BitcoinExchange::_valideBtcAmount( std::string const &price )
 {
 	double	amountBtc;
+	char	extra;
 	std::istringstream priceStream( price );
 
-	if ( !(priceStream >> amountBtc) )
+	if ( !(priceStream >> amountBtc) || (priceStream >> extra) )
 	{
 		std::cout << "Error: bad input => " << price << std::endl;
 		return ( -1 );
@@ -163,14 +151,17 @@ void	BitcoinExchange::_readDatabase()
             throw InvalidInputLineFormatException();
         while (std::getline(file, line))
 		{
+			if ( line.empty() )
+				continue;
             std::string date, price;
             std::istringstream ss(line);
             std::getline(ss, date, ',');
             std::getline(ss, price, ',');
 
             double priceBtc;
+			char extra;
             std::istringstream priceStream(price);
-            if (!(priceStream >> priceBtc))
+			if (!(priceStream >> priceBtc) || (priceStream >> extra))
 				throw InvalidPriceFormatException();
             _exchangeMap[date] = priceBtc;
         }
