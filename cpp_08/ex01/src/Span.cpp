@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:10:44 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/30 15:47:25 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:51:38 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,7 @@ void	Span::addNumber( int n )
 	this->_v.push_back( n );
 }
 
-void	Span::addMultipleNumbers( std::vector<int>::iterator begin, std::vector<int>::iterator end )
-{
-	if ( _v.size() + std::distance(begin, end) > _N )
-		throw FullContainerException();
-	_v.insert( _v.end(), begin, end );
-}
-
-int		Span::shortestSpan()
+int		Span::shortestSpan() const
 {
 	if ( this->_v.size() <= 1 )
 		throw NotEnoughNumbersException();
@@ -65,20 +58,21 @@ int		Span::shortestSpan()
 	std::vector<int>	tmp = this->_v;
 	std::sort(tmp.begin(), tmp.end());
 
-	int					min = tmp[1] - tmp[0];
+	long long			min = static_cast<long long>(tmp[1]) - static_cast<long long>(tmp[0]);
 	unsigned int		i = 2;
 	
 	while ( i < tmp.size() )
 	{
-		if (tmp[i] - tmp[i - 1] < min)
-			min = tmp[i] - tmp[i - 1];
+		const long long current = static_cast<long long>(tmp[i]) - static_cast<long long>(tmp[i - 1]);
+		if (current < min)
+			min = current;
 		i++;
 	}
 	
-	return ( min );
+	return ( static_cast<int>(min) );
 }
 
-int		Span::longestSpan()
+int		Span::longestSpan() const
 {
 	if ( this->_v.size() <= 1 )
 		throw NotEnoughNumbersException();
@@ -86,5 +80,5 @@ int		Span::longestSpan()
 	std::vector<int>	tmp = this->_v;
 	std::sort(tmp.begin(), tmp.end());
 
-	return ( tmp[tmp.size() - 1] - tmp[0] );
+	return ( static_cast<int>(static_cast<long long>(tmp[tmp.size() - 1]) - static_cast<long long>(tmp[0])) );
 }
