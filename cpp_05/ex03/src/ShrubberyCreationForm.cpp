@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:02:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/04/17 11:01:14 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 14:37:31 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void ShrubberyCreationForm::execute( Bureaucrat const &instance ) const
 		throw AForm::NotSigned();
 	if ( instance.getGrade() > this->getGradeToExec() )
 		throw AForm::GradeTooLowToExecException();
-	std::ofstream outfile ( this->getTarget() + "_shrubbery" );
+	std::ofstream outfile ( (this->getTarget() + "_shrubbery" ).c_str() );
 	if (!outfile.is_open())
 		throw std::runtime_error("Could not create shrubbery file.");
 	outfile << "         &&& &&  & &&" << std::endl;
