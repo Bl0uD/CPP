@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:27 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/15 17:16:26 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:15:56 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@ ScalarConverter &ScalarConverter::operator=( ScalarConverter const &instance )
 {
 	(void)instance;
 	return ( *this );
+}
+
+static bool is_pseudo_literal( std::string const &input )
+{
+	return (input == "nan" ||
+		input == "nanf" ||
+		input == "+inf" ||
+		input == "-inf" ||
+		input == "+inff" ||
+		input == "-inff");
 }
 
 static void print_results( std::string const &toChar, bool intImpossible, bool floatImpossible, bool doubleImpossible, int toInt, float toFloat, double toDouble )
@@ -51,12 +61,7 @@ static void print_results( std::string const &toChar, bool intImpossible, bool f
 
 static bool parser( std::string const &input )
 {
-	if (input == "nan" ||
-		input == "nanf" ||
-		input == "+inf" ||
-		input == "-inf" ||
-		input == "+inff" ||
-		input == "-inff" )
+	if ( is_pseudo_literal(input) )
 		return ( true );
 
 	if ( input.length() == 3 && input[0] == '\'' && input[2] == '\'' && std::isprint(input[1]) )
@@ -131,13 +136,29 @@ void	ScalarConverter::convert( std::string const &input )
 		convert_single_input( input[0], toChar, toInt, toFloat, toDouble );
 	else
 	{
-		toDouble = std::strtod( input.c_str(), NULL );
-		toFloat = static_cast<float>( toDouble );
+		errno = 0;
+		char *end = NULL;
+		toDouble = std::strtod( input.c_str(), &end );
 
-		if ( std::isinf(toFloat) && !std::isinf(toDouble) )
-			toDouble = toFloat;
+		if ( errno == ERANGE && std::isinf(toDouble) && !is_pseudo_literal(input) )
+			doubleImpossible = true;
 
-		if ( toDouble < INT_MIN || toDouble > INT_MAX || std::isnan(toDouble) || std::isinf(toDouble) )
+		if ( doubleImpossible )
+			floatImpossible = true;
+		else if ( std::isnan(toDouble) || std::isinf(toDouble) )
+			toFloat = static_cast<float>( toDouble );
+		else if ( toDouble <= std::numeric_limits<float>::max() && toDouble >= -std::numeric_limits<float>::max() )
+			toFloat = static_cast<float>( toDouble );
+		else
+			floatImpossible = true;
+
+		if ( end && *end != '\0' && !(*end == 'f' && *(end + 1) == '\0') )
+		{
+			std::cout << "Error : Invalid input" << std::endl;
+			return ;
+		}
+
+		if ( doubleImpossible || toDouble < INT_MIN || toDouble > INT_MAX || std::isnan(toDouble) || std::isinf(toDouble) )
 			intImpossible = true;
 		else
 			toInt = static_cast<int>( toDouble );
