@@ -6,13 +6,15 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:02:00 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/06 14:34:15 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:01:14 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFROM_HPP
 # define SHRUBBERYCREATIONFROM_HPP
 
+# include "AForm.hpp"
+# include <fstream>
 # include <iostream>
 # include <string>
 

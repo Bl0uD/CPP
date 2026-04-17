@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:56:24 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/06 16:50:49 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:01:14 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Intern::Intern()
 
 Intern::Intern( Intern const &copy )
 {
-	*this = copy;
+	(void)copy;
 }
 
 Intern &Intern::operator=( Intern const &instance )
