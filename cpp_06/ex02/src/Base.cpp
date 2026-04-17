@@ -6,7 +6,7 @@
 /*   By: jdupuis <jdupuis@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:06:14 by jdupuis           #+#    #+#             */
-/*   Updated: 2026/01/13 15:43:12 by jdupuis          ###   ########.fr       */
+/*   Updated: 2026/04/17 11:19:09 by jdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 #include "../includes/B.hpp"
 #include "../includes/C.hpp"
 
-Base::~Base( void )
-{
-	std::cout << "Base destructor called." << std::endl;
-}
+Base::~Base( void ) {}
 
 Base *generate( void )
 {
@@ -40,12 +37,20 @@ Base *generate( void )
 
 void identify( Base *p )
 {
+	if (!p)
+	{
+		std::cout << "unknown" << std::endl;
+		return;
+	}
+
 	if ( dynamic_cast<A *>(p) )
 		std::cout << "A" << std::endl;
 	else if ( dynamic_cast<B *>(p) )
 		std::cout << "B" << std::endl;
 	else if ( dynamic_cast<C *>(p) )
 		std::cout << "C" << std::endl;
+	else
+		std::cout << "unknown" << std::endl;
 }
 
 void identify( Base &p )
